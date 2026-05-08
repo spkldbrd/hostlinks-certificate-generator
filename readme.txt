@@ -18,6 +18,11 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
+= 1.0.19 =
+* Improvement: Print / Save PDF now uses the live certificate preview with print-only sizing and spacing for a one-page landscape PDF.
+* Improvement: Emailed certificate PDF layout is tuned to more closely match the printed certificate layout while staying Dompdf-safe.
+* Fix: Event filters now classify simple Management event types correctly and filter year/month by certificate completion date.
+
 = 1.0.18 =
 * Fix: Rewrite PDF layout — replace position:absolute footer with height:100% table layout; eliminates second blank page and gap between content and footer
 

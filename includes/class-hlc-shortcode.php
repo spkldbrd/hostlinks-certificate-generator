@@ -143,7 +143,7 @@ class HLC_Shortcode {
 					</div>
 
 					<div class="hlc-actions">
-						<button type="button" class="hlc-btn hlc-btn--primary" id="hlc-download">Download PDF</button>
+						<button type="button" class="hlc-btn hlc-btn--primary" id="hlc-download">Print / Save PDF</button>
 						<button type="button" class="hlc-btn hlc-btn--outline" id="hlc-email-send">Email PDF</button>
 					</div>
 					<p id="hlc-status" class="hlc-status" aria-live="polite"></p>

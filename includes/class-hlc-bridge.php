@@ -55,6 +55,11 @@ class HLC_Bridge {
 
 		$where  = array( 'e.eve_status = 1' );
 		$params = array();
+		$event_date_sql = "CASE
+			WHEN e.eve_end IS NOT NULL AND e.eve_end NOT IN ('', '0000-00-00', '0000-00-00 00:00:00')
+			THEN e.eve_end
+			ELSE e.eve_start
+		END";
 
 		if ( is_array( $event_ids ) ) {
 			$event_ids = array_values( array_filter( array_map( 'intval', $event_ids ) ) );
@@ -68,24 +73,18 @@ class HLC_Bridge {
 
 		if ( ! empty( $filters['past_only'] ) ) {
 			$cutoff  = wp_date( 'Y-m-d' );
-			$where[] = "DATE(
-				CASE
-					WHEN e.eve_end IS NOT NULL AND e.eve_end NOT IN ('', '0000-00-00', '0000-00-00 00:00:00')
-					THEN e.eve_end
-					ELSE e.eve_start
-				END
-			) < %s";
+			$where[] = "DATE({$event_date_sql}) < %s";
 			$params[] = $cutoff;
 		}
 
 		if ( ! empty( $filters['year'] ) ) {
 			$y = (int) $filters['year'];
 			if ( $y >= 1990 && $y <= 2100 ) {
-				$where[]  = 'YEAR(e.eve_start) = %d';
+				$where[]  = "YEAR({$event_date_sql}) = %d";
 				$params[] = $y;
 				$m        = isset( $filters['month'] ) ? (int) $filters['month'] : 0;
 				if ( $m >= 1 && $m <= 12 ) {
-					$where[]  = 'MONTH(e.eve_start) = %d';
+					$where[]  = "MONTH({$event_date_sql}) = %d";
 					$params[] = $m;
 				}
 			}
@@ -98,7 +97,7 @@ class HLC_Bridge {
 			FROM {$this->events_table} e
 			LEFT JOIN {$this->type_table} t ON e.eve_type = t.event_type_id
 			WHERE {$where_sql}
-			ORDER BY e.eve_start {$order}";
+			ORDER BY {$event_date_sql} {$order}";
 
 		if ( $params !== array() ) {
 			$sql = $wpdb->prepare( $sql, $params ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared

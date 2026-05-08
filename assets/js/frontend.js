@@ -42,6 +42,15 @@
 		return 'GWU-' + year + '-' + suffix;
 	}
 
+	function safePrintFilename(prefix, name, year) {
+		var cleanName = (name || 'Recipient')
+			.trim()
+			.replace(/[\\/:*?"<>|]+/g, '')
+			.replace(/\s+/g, ' ');
+		if (!cleanName) cleanName = 'Recipient';
+		return prefix + ' - ' + cleanName + ' - Certificate ' + year;
+	}
+
 	function logoForVariant(variant) {
 		if (!hlcData.media) return '';
 		if (variant === 'subaward') {
@@ -182,6 +191,8 @@
 				if (list.length === 0) {
 					select.innerHTML = '<option value="">No past events in this year/month</option>';
 					status('Try another month or year.', false);
+					var mini = el('hlc-mini-meta');
+					if (mini) mini.hidden = true;
 					syncPreview();
 					return;
 				}
@@ -227,11 +238,65 @@
 		card.classList.add('hlc-refresh');
 	}
 
+	function printPreviewPdf() {
+		var card = el('hlc-cert-card');
+		var oldRoot = el('hlc-print-root');
+		if (oldRoot) oldRoot.remove();
+		if (!card) {
+			status('Certificate preview is not available to print.', true);
+			return;
+		}
+
+		syncPreview();
+
+		var select = el('hlc-event');
+		var nameIn = el('hlc-participant');
+		var rawIdx = select ? select.selectedIndex : -1;
+		var ev = (rawIdx > 0 && eventsInOrder[rawIdx - 1]) ? eventsInOrder[rawIdx - 1] : null;
+		var dateKey = ev && ev.date_key ? ev.date_key : '';
+		var certYear = dateKey && dateKey.length >= 4 ? dateKey.slice(0, 4) : String(new Date().getFullYear());
+		var prefix = currentVariant() === 'grant_writing' ? 'GWUSA' : 'GMUSA';
+		document.body.dataset.hlcOriginalTitle = document.title;
+		document.title = safePrintFilename(prefix, nameIn && nameIn.value ? nameIn.value : '', certYear);
+
+		var printRoot = document.createElement('div');
+		printRoot.id = 'hlc-print-root';
+		printRoot.setAttribute('aria-hidden', 'true');
+
+		// Keep the printed clone inside .hlc-shell so CSS variables match the live preview.
+		var shell = document.createElement('div');
+		shell.className = 'hlc-shell hlc-print-shell';
+		shell.appendChild(card.cloneNode(true));
+		printRoot.appendChild(shell);
+		document.body.appendChild(printRoot);
+
+		document.body.classList.add('hlc-print-certificate');
+		status('Opening print dialog. Choose "Save as PDF" to create the certificate PDF.', false);
+
+		if (document.fonts && document.fonts.ready) {
+			document.fonts.ready.then(function () {
+				window.print();
+			});
+		} else {
+			window.print();
+		}
+	}
+
 	document.addEventListener('DOMContentLoaded', function () {
 		var root = el('hlc-app');
 		if (!root || typeof hlcData === 'undefined') return;
 
 		preloadMedia();
+
+		window.addEventListener('afterprint', function () {
+			document.body.classList.remove('hlc-print-certificate');
+			var printRoot = el('hlc-print-root');
+			if (printRoot) printRoot.remove();
+			if (document.body.dataset.hlcOriginalTitle) {
+				document.title = document.body.dataset.hlcOriginalTitle;
+				delete document.body.dataset.hlcOriginalTitle;
+			}
+		});
 
 		var select = el('hlc-event');
 		var nameIn = el('hlc-participant');
@@ -337,7 +402,7 @@
 				});
 		}
 
-		if (btnDl) btnDl.addEventListener('click', function () { requestPdf('download'); });
+		if (btnDl) btnDl.addEventListener('click', printPreviewPdf);
 		if (btnMail) btnMail.addEventListener('click', function () { requestPdf('email'); });
 	});
 })();

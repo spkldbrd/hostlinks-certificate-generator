@@ -29,7 +29,7 @@ class HLC_Access {
 
 	const DEFAULT_MATCH_GW = "grant writing\n";
 
-	const DEFAULT_MATCH_GM = "grant management\n";
+	const DEFAULT_MATCH_GM = "grant management\nmanagement\n";
 
 	const DEFAULT_MATCH_SUB = "subaward\nsub-award\nsub award\n";
 
@@ -213,6 +213,12 @@ class HLC_Access {
 				return 'gm';
 			}
 		}
+
+		// Hostlinks event types are sometimes named simply "Management".
+		if ( str_contains( $name, 'management' ) ) {
+			return 'gm';
+		}
+
 		foreach ( $this->get_match_grant_writing_lines() as $sub ) {
 			if ( $sub !== '' && str_contains( $name, $sub ) ) {
 				return 'gw';

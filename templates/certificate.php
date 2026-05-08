@@ -1,8 +1,8 @@
 <?php
 /**
  * Dompdf: fixed US Letter landscape (11in × 8.5in).
- * Layout uses a height:100% table so the footer row is always at the bottom
- * without position:absolute (which causes Dompdf to add a second blank page).
+ * Use explicit point dimensions rather than nested 100% heights; Dompdf counts
+ * borders and padding inconsistently and can otherwise create a second page.
  *
  * @var string $participant_name
  * @var string $agency
@@ -32,12 +32,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		}
 		@page {
 			size: letter landscape;
-			margin: 0.32in;
+			margin: 0;
 		}
-		* { box-sizing: border-box; margin: 0; padding: 0; }
+		* { margin: 0; padding: 0; }
 		html, body {
-			width: 100%;
-			height: 100%;
 			background: #ffffff;
 		}
 		body {
@@ -47,30 +45,36 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		/* ── outer page shell ── */
 		.page {
-			width: 10.36in;
-			height: 7.86in;
+			width: 780pt;
+			height: 600pt;
+			page-break-inside: avoid;
+			page-break-after: avoid;
 		}
 		.paper {
 			background: #ffffff;
 			border: 3px solid #9b2335;
-			height: 100%;
+			width: 748pt;
+			height: 568pt;
 			padding: 8px;
+			margin: 5pt auto 0 auto;
 		}
 		.paper-inner {
 			border: 1px solid rgba(155, 35, 53, 0.45);
 			padding: 8px;
-			height: 100%;
+			width: 726pt;
+			height: 546pt;
 		}
 		.paper-core {
 			border: 1px solid rgba(181, 140, 60, 0.5);
-			padding: 14px 28px 10px 28px;
-			height: 100%;
+			padding: 24px 28px 8px 28px;
+			width: 668pt;
+			height: 510pt;
 		}
 
 		/* ── two-row layout table (fills paper-core) ── */
 		.cert-layout {
 			width: 100%;
-			height: 100%;
+			height: 510pt;
 			border-collapse: collapse;
 			table-layout: fixed;
 		}
@@ -83,25 +87,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 		/* footer row — fixed height, content sits at bottom */
 		.cert-foot {
 			vertical-align: bottom;
-			height: 130px;
+			height: 138pt;
 			padding: 0;
 		}
 
 		/* ── header / content ── */
 		.hdr-logo {
-			max-height: 64px;
+			max-height: 112px;
 			width: auto;
-			max-width: 280px;
-			margin: 0 auto 4px auto;
+			max-width: 410px;
+			margin: 0 auto 6px auto;
 			display: block;
 		}
 		.hdr-sub {
-			font-size: 8px;
+			font-size: 10px;
 			font-weight: 700;
-			letter-spacing: 0.32em;
+			letter-spacing: 0.36em;
 			text-transform: uppercase;
 			color: #1a2744;
-			margin: 0;
+			margin: 3px 0 12px 0;
 		}
 		.hdr-line {
 			display: inline-block;
@@ -115,20 +119,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 			text-transform: uppercase;
 			letter-spacing: 0.32em;
 			color: rgba(26, 39, 68, 0.82);
-			margin: 16px 0 0 0;
+			margin: 14px 0 8px 0;
 		}
 		.name {
-			font-family: DejaVu Serif, serif;
-			font-size: 34px;
-			line-height: 1.05;
+			font-family: 'AlexBrush', DejaVu Serif, serif;
+			font-size: 46px;
+			line-height: 1;
 			color: #7a1524;
-			margin: 10px 0 0 0;
-			font-weight: 700;
+			margin: 0 0 10px 0;
+			font-weight: 400;
 		}
 		.name-line {
 			height: 1px;
 			width: 72%;
-			margin: 8px auto 0 auto;
+			margin: 0 auto 18px auto;
 			background-color: rgba(155, 35, 53, 0.4);
 		}
 		.agency {
@@ -141,20 +145,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 		}
 		.body-text {
 			font-family: DejaVu Serif, serif;
-			font-size: 14px;
+			font-size: 19px;
 			font-style: italic;
 			line-height: 1.45;
 			color: rgba(43, 47, 68, 0.88);
-			margin: 14px auto 0 auto;
-			max-width: 92%;
+			margin: 0 auto 0 auto;
+			max-width: 88%;
 		}
 		.program {
-			font-size: 9px;
+			font-size: 10px;
 			font-weight: 700;
 			text-transform: uppercase;
 			letter-spacing: 0.28em;
 			color: #9b2335;
-			margin: 12px 0 0 0;
+			margin: 18px 0 0 0;
 		}
 
 		/* ── footer ── */
@@ -195,8 +199,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			margin: 4px 0 0 0;
 		}
 		.seal-img {
-			width: 76px;
-			height: 76px;
+			width: 122px;
+			height: 122px;
 			display: block;
 			margin: 0 auto;
 		}
@@ -273,7 +277,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 										<?php if ( isset( $seal_attr ) && $seal_attr !== '' ) : ?>
 											<img class="seal-img" src="<?php echo $seal_attr; ?>" alt="" />
 										<?php else : ?>
-											<div style="height:76px;"></div>
+											<div style="height:122px;"></div>
 										<?php endif; ?>
 									</td>
 									<td class="ft-top" style="width:36%;">
