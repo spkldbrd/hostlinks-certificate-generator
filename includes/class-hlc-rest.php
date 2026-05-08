@@ -179,6 +179,19 @@ class HLC_REST {
 				return new WP_REST_Response( array( 'message' => 'Could not create temporary file.' ), 500 );
 			}
 
+			$from_name  = $this->access->get_email_from_name();
+			$from_email = $this->access->get_email_from_email();
+
+			$set_from_name  = $from_name !== ''
+				? static function () use ( $from_name ) { return $from_name; }
+				: null;
+			$set_from_email = $from_email !== ''
+				? static function () use ( $from_email ) { return $from_email; }
+				: null;
+
+			if ( $set_from_name )  add_filter( 'wp_mail_from_name', $set_from_name,  99 );
+			if ( $set_from_email ) add_filter( 'wp_mail_from',      $set_from_email, 99 );
+
 			$sent = wp_mail(
 				$to,
 				$subject,
@@ -186,6 +199,9 @@ class HLC_REST {
 				array( 'Content-Type: text/plain; charset=UTF-8' ),
 				array( $tmp )
 			);
+
+			if ( $set_from_name )  remove_filter( 'wp_mail_from_name', $set_from_name,  99 );
+			if ( $set_from_email ) remove_filter( 'wp_mail_from',      $set_from_email, 99 );
 
 			wp_delete_file( $tmp );
 

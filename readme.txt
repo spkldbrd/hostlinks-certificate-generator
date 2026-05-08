@@ -18,6 +18,9 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
+= 1.0.17 =
+* Feature: Email template editor — From Name, From Email, Subject, and Body are now configurable in plugin settings
+
 = 1.0.15 =
 * Change: Signature font switched from Great Vibes to Alex Brush for a more natural ink-pen feel
 

@@ -34,6 +34,8 @@ if ( isset( $_POST['hlc_save'] ) ) {
 	}
 	$access->save_type_logo_map( $type_map );
 
+	update_option( HLC_Access::OPT_EMAIL_FROM_NAME, sanitize_text_field( wp_unslash( $_POST['hlc_email_from_name'] ?? '' ) ) );
+	update_option( HLC_Access::OPT_EMAIL_FROM_EMAIL, sanitize_email( wp_unslash( $_POST['hlc_email_from_email'] ?? '' ) ) );
 	update_option( HLC_Access::OPT_EMAIL_SUBJECT, sanitize_text_field( wp_unslash( $_POST['hlc_email_subject'] ?? '' ) ) );
 	update_option( HLC_Access::OPT_EMAIL_BODY, sanitize_textarea_field( wp_unslash( $_POST['hlc_email_body'] ?? '' ) ) );
 
@@ -217,8 +219,26 @@ foreach ( $allowed_ids as $uid ) {
 		</table>
 
 		<h2 class="title">Email templates</h2>
-		<p class="description">Placeholders: <code>{participant_name}</code>, <code>{event_title}</code>, <code>{event_dates}</code>, <code>{event_type}</code>, <code>{site_name}</code></p>
+		<p class="description">Placeholders available in subject and body: <code>{participant_name}</code>, <code>{event_title}</code>, <code>{event_dates}</code>, <code>{event_type}</code>, <code>{site_name}</code></p>
 		<table class="form-table">
+			<tr>
+				<th scope="row"><label for="hlc_email_from_name">From name</label></th>
+				<td>
+					<input type="text" id="hlc_email_from_name" name="hlc_email_from_name" class="regular-text"
+						value="<?php echo esc_attr( $access->get_email_from_name() ); ?>"
+						placeholder="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" />
+					<p class="description">Defaults to the site name if left blank.</p>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row"><label for="hlc_email_from_email">From email address</label></th>
+				<td>
+					<input type="email" id="hlc_email_from_email" name="hlc_email_from_email" class="regular-text"
+						value="<?php echo esc_attr( $access->get_email_from_email() ); ?>"
+						placeholder="<?php echo esc_attr( get_bloginfo( 'admin_email' ) ); ?>" />
+					<p class="description">Defaults to the WordPress admin email if left blank.</p>
+				</td>
+			</tr>
 			<tr>
 				<th scope="row"><label for="hlc_email_subject">Subject</label></th>
 				<td>

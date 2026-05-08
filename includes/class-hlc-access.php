@@ -16,8 +16,10 @@ class HLC_Access {
 	const OPT_MATCH_GW       = 'hlc_match_grant_writing';
 	const OPT_MATCH_GM       = 'hlc_match_grant_mgmt';
 	const OPT_TYPE_MAP       = 'hlc_type_logo_map';
-	const OPT_EMAIL_SUBJECT  = 'hlc_email_subject';
-	const OPT_EMAIL_BODY     = 'hlc_email_body';
+	const OPT_EMAIL_FROM_NAME  = 'hlc_email_from_name';
+	const OPT_EMAIL_FROM_EMAIL = 'hlc_email_from_email';
+	const OPT_EMAIL_SUBJECT    = 'hlc_email_subject';
+	const OPT_EMAIL_BODY       = 'hlc_email_body';
 	const OPT_LIMIT_BUCKETS  = 'hlc_limit_to_buckets';
 	const OPT_DENIAL_MESSAGE = 'hlc_denial_message';
 	const OPT_MATCH_SUB      = 'hlc_match_subaward';
@@ -31,7 +33,9 @@ class HLC_Access {
 
 	const DEFAULT_MATCH_SUB = "subaward\nsub-award\nsub award\n";
 
-	const DEFAULT_EMAIL_SUBJECT = 'Your certificate: {event_title}';
+	const DEFAULT_EMAIL_FROM_NAME  = '';
+	const DEFAULT_EMAIL_FROM_EMAIL = '';
+	const DEFAULT_EMAIL_SUBJECT    = 'Your certificate: {event_title}';
 
 	const DEFAULT_EMAIL_BODY = "Hello,\n\nAttached is your certificate for {event_title} ({event_dates}).\n\n— {site_name}\n";
 
@@ -144,6 +148,15 @@ class HLC_Access {
 			}
 		}
 		update_option( self::OPT_TYPE_MAP, $clean );
+	}
+
+	public function get_email_from_name(): string {
+		return (string) get_option( self::OPT_EMAIL_FROM_NAME, '' );
+	}
+
+	public function get_email_from_email(): string {
+		$v = (string) get_option( self::OPT_EMAIL_FROM_EMAIL, '' );
+		return is_email( $v ) ? $v : '';
 	}
 
 	public function get_email_subject(): string {
