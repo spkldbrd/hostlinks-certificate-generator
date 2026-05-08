@@ -14,17 +14,52 @@ class HLC_Admin {
 	}
 
 	public function register_menu(): void {
-		add_options_page(
+		add_menu_page(
 			'Certificate Generator',
 			'HL Certificates',
 			'manage_options',
 			'hlc-settings',
-			array( $this, 'render_settings_page' )
+			array( $this, 'render_settings_page' ),
+			'dashicons-awards',
+			57
 		);
 	}
 
+	public function reorder_top_level_menu(): void {
+		global $menu;
+		if ( ! is_array( $menu ) ) {
+			return;
+		}
+
+		$cert_item = null;
+		foreach ( $menu as $key => $item ) {
+			if ( isset( $item[2] ) && $item[2] === 'hlc-settings' ) {
+				$cert_item = $item;
+				unset( $menu[ $key ] );
+				break;
+			}
+		}
+		if ( ! $cert_item ) {
+			return;
+		}
+
+		$menu = array_values( $menu );
+		$insert_at = count( $menu );
+		foreach ( $menu as $idx => $item ) {
+			if ( isset( $item[2] ) && $item[2] === 'booking-menu' ) {
+				$insert_at = $idx + 1;
+				break;
+			}
+			if ( isset( $item[2] ) && $item[2] === 'hmo-dashboard' ) {
+				$insert_at = $idx;
+			}
+		}
+
+		array_splice( $menu, $insert_at, 0, array( $cert_item ) );
+	}
+
 	public function enqueue_admin( string $hook ): void {
-		if ( $hook !== 'settings_page_hlc-settings' ) {
+		if ( $hook !== 'toplevel_page_hlc-settings' ) {
 			return;
 		}
 		wp_enqueue_media();

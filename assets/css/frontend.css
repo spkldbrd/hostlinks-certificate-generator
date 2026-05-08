@@ -430,8 +430,10 @@
 .hlc-cert-ft-date {
 	margin: 0;
 	font-family: var(--font-serif);
-	font-size: 1.2rem;
+	font-size: 1.05rem;
 	font-weight: 700;
+	line-height: 1.25;
+	white-space: pre-line;
 	color: var(--hlc-navy);
 }
 

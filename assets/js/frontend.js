@@ -132,7 +132,7 @@
 			prProg.textContent = copy.title + ' · ' + copy.hours;
 		}
 
-		var dateLong = ev && ev.completion_date_long ? ev.completion_date_long : '—';
+		var dateLong = ev && ev.event_details ? ev.event_details : '—';
 		var prDate = el('hlc-pr-datelong');
 		if (prDate) prDate.textContent = dateLong;
 

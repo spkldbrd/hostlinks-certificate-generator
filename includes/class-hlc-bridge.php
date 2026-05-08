@@ -141,9 +141,11 @@ class HLC_Bridge {
 		$label = self::build_event_label( $location, $type_name, $event, $is_zoom );
 
 		$start_raw = isset( $event->eve_start ) ? (string) $event->eve_start : '';
+		$end_raw   = isset( $event->eve_end ) ? (string) $event->eve_end : '';
+		$key_raw   = $end_raw !== '' ? $end_raw : $start_raw;
 		$date_key  = '';
-		if ( $start_raw !== '' ) {
-			$ts = strtotime( $start_raw );
+		if ( $key_raw !== '' ) {
+			$ts = strtotime( $key_raw );
 			if ( $ts ) {
 				$date_key = gmdate( 'Y-m-d', $ts );
 			}
@@ -153,11 +155,12 @@ class HLC_Bridge {
 			'id'                   => (int) $event->eve_id,
 			'label'                => $label,
 			'start'                => $start_raw,
-			'end'                  => isset( $event->eve_end ) ? (string) $event->eve_end : '',
+			'end'                  => $end_raw,
 			'type_name'            => $type_name,
 			'type_id'              => isset( $event->eve_type ) ? (int) $event->eve_type : 0,
 			'date_label'           => self::format_event_dates( $event ),
 			'location'             => $location,
+			'event_details'        => self::format_event_details( $event ),
 			'completion_date_long' => HLC_Certificate_Data::format_completion_date_long( $event ),
 			'date_key'             => $date_key,
 			'is_zoom'              => $is_zoom,
@@ -225,5 +228,17 @@ class HLC_Bridge {
 			return date_i18n( 'M j', $ts_start ) . ' – ' . date_i18n( 'M j, Y', $ts_end );
 		}
 		return date_i18n( 'M j, Y', $ts_start );
+	}
+
+	public static function format_event_details( object $event ): string {
+		$dates = self::format_event_dates( $event );
+		$is_zoom = isset( $event->eve_zoom )
+			&& strtolower( trim( (string) $event->eve_zoom ) ) === 'yes';
+		$location = $is_zoom
+			? 'Zoom webinar'
+			: ( isset( $event->eve_location ) ? trim( (string) $event->eve_location ) : '' );
+
+		$parts = array_values( array_filter( array( $dates, $location ), static fn( $part ) => $part !== '' ) );
+		return implode( "\n", $parts );
 	}
 }

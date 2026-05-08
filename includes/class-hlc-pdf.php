@@ -55,8 +55,9 @@ class HLC_PDF {
 		$seal_uri  = is_readable( $seal_file ) ? $this->file_to_data_uri( $seal_file ) : '';
 		$seal_attr = $seal_uri !== '' ? htmlspecialchars( $seal_uri, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8' ) : '';
 
-		$date_long = HLC_Certificate_Data::format_completion_date_long( $event );
-		$date_key  = $this->event_date_key( $event );
+		$date_long     = HLC_Certificate_Data::format_completion_date_long( $event );
+		$event_details = HLC_Bridge::format_event_details( $event );
+		$date_key      = $this->event_date_key( $event );
 
 		$certificate_id = HLC_Certificate_Data::build_certificate_id( $participant_name, $variant, $date_key );
 
@@ -124,11 +125,16 @@ class HLC_PDF {
 	}
 
 	private function event_date_key( object $event ): string {
-		$start = isset( $event->eve_start ) ? (string) $event->eve_start : '';
-		if ( $start === '' ) {
+		$date = '';
+		if ( ! empty( $event->eve_end ) ) {
+			$date = (string) $event->eve_end;
+		} elseif ( ! empty( $event->eve_start ) ) {
+			$date = (string) $event->eve_start;
+		}
+		if ( $date === '' ) {
 			return gmdate( 'Y-m-d' );
 		}
-		$ts = strtotime( $start );
+		$ts = strtotime( $date );
 		return $ts ? gmdate( 'Y-m-d', $ts ) : gmdate( 'Y-m-d' );
 	}
 

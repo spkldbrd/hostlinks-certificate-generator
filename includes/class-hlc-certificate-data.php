@@ -21,17 +21,17 @@ class HLC_Certificate_Data {
 			self::VARIANT_GRANT_WRITING => array(
 				'title' => 'Grant Writing Workshop',
 				'body'  => 'having successfully completed the Grant Writing USA two-day intensive workshop in the principles, practices, and craft of competitive federal and foundation grant writing.',
-				'hours' => 'Sixteen (16) Contact Hours',
+				'hours' => 'Twelve (12) Contact Hours',
 			),
 			self::VARIANT_GRANT_MANAGEMENT => array(
 				'title' => 'Grant Management Workshop',
 				'body'  => 'having successfully completed the Grant Management USA two-day intensive workshop in post-award grant administration, compliance, and the Uniform Guidance (2 CFR 200).',
-				'hours' => 'Sixteen (16) Contact Hours',
+				'hours' => 'Twelve (12) Contact Hours',
 			),
 			self::VARIANT_SUBAWARD => array(
 				'title' => 'Grant Management USA Subaward Workshop',
 				'body'  => 'having successfully completed the Grant Management USA Subaward Workshop, a one-day intensive program in subaward management, monitoring, risk assessment, and pass-through entity responsibilities under 2 CFR 200.',
-				'hours' => 'Eight (8) Contact Hours',
+				'hours' => 'Six (6) Contact Hours',
 			),
 		);
 	}

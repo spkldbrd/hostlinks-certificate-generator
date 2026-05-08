@@ -77,8 +77,8 @@ class HLC_Shortcode {
 						? wp_get_attachment_image_url( $logo_sub, 'medium' )
 						: ( $logo_gm ? wp_get_attachment_image_url( $logo_gm, 'medium' ) : $default_gm ),
 					'signature' => $sig_id ? wp_get_attachment_image_url( $sig_id, 'medium' ) : $bundle_sig,
-					'sealGw'    => HLC_PLUGIN_URL . 'assets/img/seal-grant-writing-usa.svg',
-					'sealGm'    => HLC_PLUGIN_URL . 'assets/img/seal-grant-management-usa.svg',
+					'sealGw'    => HLC_PLUGIN_URL . 'assets/img/seal-grant-writing-usa.png',
+					'sealGm'    => HLC_PLUGIN_URL . 'assets/img/seal-grant-management-usa.png',
 				),
 			)
 		);
@@ -185,7 +185,7 @@ class HLC_Shortcode {
 														<img id="hlc-pr-seal" class="hlc-cert-seal-img" src="" alt="" aria-hidden="true" />
 													</td>
 													<td class="hlc-cert-ft-top hlc-cert-ft-w-sig">
-														<p class="hlc-cert-sig-script">Becky Helm</p>
+														<p class="hlc-cert-sig-script">Rebecca Helm</p>
 													</td>
 												</tr>
 												<tr>
@@ -195,11 +195,11 @@ class HLC_Shortcode {
 												</tr>
 												<tr>
 													<td class="hlc-cert-ft-bot">
-														<p class="hlc-cert-ft-lbl">Date of Completion</p>
+														<p class="hlc-cert-ft-lbl">Event Details</p>
 													</td>
 													<td class="hlc-cert-ft-bot"></td>
 													<td class="hlc-cert-ft-bot hlc-cert-ft-bot-sig">
-														<p class="hlc-cert-sig-name">Becky Helm</p>
+														<p class="hlc-cert-sig-name">Rebecca Helm</p>
 														<p class="hlc-cert-sig-title">Chief Executive Officer</p>
 													</td>
 												</tr>

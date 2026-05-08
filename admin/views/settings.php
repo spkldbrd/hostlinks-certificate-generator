@@ -172,13 +172,13 @@ foreach ( $allowed_ids as $uid ) {
 				<th scope="row"><label for="hlc_match_sub">Subaward type hints</label></th>
 				<td>
 					<textarea name="hlc_match_sub" id="hlc_match_sub" rows="3" class="large-text"><?php echo esc_textarea( $match_sub ); ?></textarea>
-					<p class="description">One substring per line. If the Hostlinks event <strong>type name</strong> matches, certificates use Subaward wording and 8 contact hours. Checked before Grant Writing / Grant Management.</p>
+					<p class="description">One substring per line. If the Hostlinks event <strong>type name</strong> matches, certificates use Subaward wording and 6 contact hours. Checked before Grant Writing / Grant Management.</p>
 				</td>
 			</tr>
 		</table>
 
 		<h2 class="title">CEO signature (optional)</h2>
-		<p class="description">Defaults to the bundled Becky Helm signature from Grant Certify Pro if not set.</p>
+		<p class="description">Legacy image setting. Certificates now render Rebecca Helm as styled text for print/PDF consistency.</p>
 		<table class="form-table">
 			<tr>
 				<th scope="row">Signature image</th>

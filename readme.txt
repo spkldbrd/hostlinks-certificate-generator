@@ -18,6 +18,13 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
+= 1.0.20 =
+* Change: Replace bundled Grant Writing / Grant Management certificate seals with updated stamp artwork.
+* Change: Two-day workshops now show 12 contact hours; Subaward now shows 6 contact hours.
+* Change: Footer now shows Event Details with event date range and location / Zoom webinar.
+* Change: Signature text now reads Rebecca Helm.
+* Improvement: HL Certificates now appears as a top-level admin menu item directly after Hostlinks.
+
 = 1.0.19 =
 * Improvement: Print / Save PDF now uses the live certificate preview with print-only sizing and spacing for a one-page landscape PDF.
 * Improvement: Emailed certificate PDF layout is tuned to more closely match the printed certificate layout while staying Dompdf-safe.
@@ -85,7 +92,7 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 = 1.0.1 =
 * Grant Certify Pro–style certificate layout, live preview, studio header, and workshop copy (Grant Writing / Grant Management / Subaward).
-* Bundled Grant Writing USA logo + Becky Helm signature assets; optional CEO signature override in settings.
+* Bundled Grant Writing USA logo + certificate seal assets; signature renders as styled Rebecca Helm text for print/PDF consistency.
 * Subaward type hints setting; agency/organization field; certificate ID GWU-YEAR-#####.
 
 = 1.0.0 =

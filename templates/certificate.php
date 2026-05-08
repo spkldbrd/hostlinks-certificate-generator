@@ -11,6 +11,7 @@
  * @var string $workshop_body
  * @var string $program_line
  * @var string $date_long
+ * @var string $event_details
  * @var string $certificate_id
  */
 
@@ -182,7 +183,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		}
 		.ft-date {
 			font-family: DejaVu Serif, serif;
-			font-size: 18px;
+			font-size: 16px;
+			line-height: 1.25;
 			font-weight: 700;
 			color: #1a2744;
 		}
@@ -271,7 +273,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<table class="footer-table" cellspacing="0" cellpadding="0">
 								<tr>
 									<td class="ft-top" style="width:36%;">
-										<p class="ft-date"><?php echo esc_html( $date_long ); ?></p>
+										<p class="ft-date"><?php echo nl2br( esc_html( $event_details ) ); ?></p>
 									</td>
 									<td class="ft-top" style="width:28%; text-align:center;">
 										<?php if ( isset( $seal_attr ) && $seal_attr !== '' ) : ?>
@@ -281,7 +283,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 										<?php endif; ?>
 									</td>
 									<td class="ft-top" style="width:36%;">
-										<p class="sig-script">Becky Helm</p>
+										<p class="sig-script">Rebecca Helm</p>
 									</td>
 								</tr>
 								<tr>
@@ -291,11 +293,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 								</tr>
 								<tr>
 									<td class="ft-bot">
-										<p class="ft-label">Date of Completion</p>
+										<p class="ft-label">Event Details</p>
 									</td>
 									<td class="ft-bot"></td>
 									<td class="ft-bot">
-										<p class="sig-name">Becky Helm</p>
+										<p class="sig-name">Rebecca Helm</p>
 										<p class="sig-title">Chief Executive Officer</p>
 									</td>
 								</tr>

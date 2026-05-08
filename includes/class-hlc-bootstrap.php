@@ -22,6 +22,7 @@ class HLC_Bootstrap {
 		add_action( 'rest_api_init', array( $rest, 'register_routes' ) );
 		add_action( 'init', array( $shortcode, 'register' ) );
 		add_action( 'admin_menu', array( $admin, 'register_menu' ) );
+		add_action( 'admin_menu', array( $admin, 'reorder_top_level_menu' ), 9999 );
 		add_action( 'admin_enqueue_scripts', array( $admin, 'enqueue_admin' ) );
 
 		add_action( 'wp_ajax_hlc_search_users', array( $admin, 'ajax_search_users' ) );
