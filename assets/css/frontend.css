@@ -284,6 +284,7 @@
 	max-width: none !important;
 	margin: 0 auto 0.35rem;
 	display: block !important;
+	float: none !important;
 	position: relative;
 	z-index: 1;
 	mix-blend-mode: multiply;
@@ -385,62 +386,65 @@
 	margin-top: 1rem;
 }
 
-/* Force table display even when the active theme resets table elements to block */
-.hlc-cert-ft-table {
-	display: table !important;
-	width: 100%;
-	border-collapse: collapse;
-	table-layout: fixed;
-	margin-top: 0.75rem;
+/* Footer — pure flexbox so theme table resets cannot interfere */
+.hlc-cert-footer {
+	display: flex !important;
+	flex-direction: column !important;
 	flex: 0 0 auto;
+	margin-top: 0.75rem;
 	position: relative;
 	z-index: 1;
+	width: 100%;
 }
 
-.hlc-cert-ft-table tr {
-	display: table-row !important;
+.hlc-cert-footer-row {
+	display: flex !important;
+	flex-direction: row !important;
+	width: 100%;
 }
 
-.hlc-cert-ft-table td {
-	display: table-cell !important;
-}
-
-.hlc-cert-ft-top {
-	vertical-align: bottom;
-	height: 3.25rem;
-	padding: 0 0.35rem;
+.hlc-cert-ft-col {
+	display: block !important;
+	float: none !important;
+	min-width: 0;
 }
 
 .hlc-cert-ft-w-date {
+	flex: 0 0 36%;
 	width: 36%;
 	text-align: left;
-}
-
-.hlc-cert-ft-w-seal {
-	width: 28%;
-	text-align: center;
-	vertical-align: bottom;
-}
-
-.hlc-cert-ft-w-sig {
-	width: 36%;
-	text-align: right;
-	overflow: visible;
-}
-
-.hlc-cert-ft-mid {
-	vertical-align: top;
 	padding: 0 0.35rem;
 }
 
-.hlc-cert-ft-mid .hlc-cert-ft-rule {
+.hlc-cert-ft-w-seal {
+	flex: 0 0 28%;
+	width: 28%;
+	text-align: center;
+}
+
+.hlc-cert-ft-w-sig {
+	flex: 0 0 36%;
+	width: 36%;
+	text-align: right;
+	overflow: visible;
+	padding: 0 0.35rem;
+}
+
+.hlc-cert-footer-top .hlc-cert-ft-col {
+	align-self: flex-end;
+	padding-bottom: 0;
+}
+
+.hlc-cert-footer-rules .hlc-cert-ft-col {
+	padding: 0 0.35rem;
+}
+
+.hlc-cert-footer-rules .hlc-cert-ft-rule {
 	margin-top: 0.35rem;
 }
 
-.hlc-cert-ft-bot {
-	vertical-align: top;
-	padding: 0.35rem 0.35rem 0 0.35rem;
-	text-align: left;
+.hlc-cert-footer-labels .hlc-cert-ft-col {
+	padding: 0.35rem 0.35rem 0;
 }
 
 .hlc-cert-ft-bot-sig {
@@ -477,6 +481,7 @@
 	max-width: none !important;
 	object-fit: contain;
 	display: block !important;
+	float: none !important;
 	margin: 0 auto;
 	mix-blend-mode: multiply;
 }

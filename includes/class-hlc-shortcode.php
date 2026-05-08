@@ -175,36 +175,34 @@ class HLC_Shortcode {
 											<p id="hlc-pr-body" class="hlc-cert-body"></p>
 											<p id="hlc-pr-program" class="hlc-cert-program"></p>
 										</div>
-										<table class="hlc-cert-ft-table" role="presentation">
-											<tbody>
-												<tr>
-													<td class="hlc-cert-ft-top hlc-cert-ft-w-date">
-														<p id="hlc-pr-datelong" class="hlc-cert-ft-date">—</p>
-													</td>
-													<td class="hlc-cert-ft-top hlc-cert-ft-w-seal">
-														<img id="hlc-pr-seal" class="hlc-cert-seal-img" src="" alt="" aria-hidden="true" />
-													</td>
-													<td class="hlc-cert-ft-top hlc-cert-ft-w-sig">
-														<p class="hlc-cert-sig-script">Rebecca Helm</p>
-													</td>
-												</tr>
-												<tr>
-													<td class="hlc-cert-ft-mid"><div class="hlc-cert-ft-rule"></div></td>
-													<td class="hlc-cert-ft-mid"></td>
-													<td class="hlc-cert-ft-mid"><div class="hlc-cert-ft-rule"></div></td>
-												</tr>
-												<tr>
-													<td class="hlc-cert-ft-bot">
-														<p class="hlc-cert-ft-lbl">Event Details</p>
-													</td>
-													<td class="hlc-cert-ft-bot"></td>
-													<td class="hlc-cert-ft-bot hlc-cert-ft-bot-sig">
-														<p class="hlc-cert-sig-name">Rebecca Helm</p>
-														<p class="hlc-cert-sig-title">Chief Executive Officer</p>
-													</td>
-												</tr>
-											</tbody>
-										</table>
+									<div class="hlc-cert-footer">
+										<div class="hlc-cert-footer-row hlc-cert-footer-top">
+											<div class="hlc-cert-ft-col hlc-cert-ft-w-date">
+												<p id="hlc-pr-datelong" class="hlc-cert-ft-date">—</p>
+											</div>
+											<div class="hlc-cert-ft-col hlc-cert-ft-w-seal">
+												<img id="hlc-pr-seal" class="hlc-cert-seal-img" src="" alt="" aria-hidden="true" />
+											</div>
+											<div class="hlc-cert-ft-col hlc-cert-ft-w-sig">
+												<p class="hlc-cert-sig-script">Rebecca Helm</p>
+											</div>
+										</div>
+										<div class="hlc-cert-footer-row hlc-cert-footer-rules">
+											<div class="hlc-cert-ft-col hlc-cert-ft-w-date"><div class="hlc-cert-ft-rule"></div></div>
+											<div class="hlc-cert-ft-col hlc-cert-ft-w-seal"></div>
+											<div class="hlc-cert-ft-col hlc-cert-ft-w-sig"><div class="hlc-cert-ft-rule"></div></div>
+										</div>
+										<div class="hlc-cert-footer-row hlc-cert-footer-labels">
+											<div class="hlc-cert-ft-col hlc-cert-ft-w-date">
+												<p class="hlc-cert-ft-lbl">Event Details</p>
+											</div>
+											<div class="hlc-cert-ft-col hlc-cert-ft-w-seal"></div>
+											<div class="hlc-cert-ft-col hlc-cert-ft-w-sig hlc-cert-ft-bot-sig">
+												<p class="hlc-cert-sig-name">Rebecca Helm</p>
+												<p class="hlc-cert-sig-title">Chief Executive Officer</p>
+											</div>
+										</div>
+									</div>
 										<div class="hlc-cert-meta" id="hlc-pr-meta-cert">Certificate No. —</div>
 									</div>
 								</div>
