@@ -1,0 +1,59 @@
+# Build hostlinks-certificate-generator.zip and attach it to a GitHub Release on every push to main.
+# Release tag matches HLC_VERSION in hostlinks-certificate-generator.php. If that release already
+# exists, the zip asset is replaced (--clobber) so hotfixes on the same version refresh the package.
+
+name: Release plugin ZIP
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Read HLC_VERSION
+        id: version
+        run: |
+          VER=$(sed -n "s/.*define( 'HLC_VERSION',[[:space:]]*'\([^']*\)'.*/\1/p" hostlinks-certificate-generator.php | head -1)
+          if [ -z "$VER" ]; then
+            echo "::error::Could not parse HLC_VERSION from hostlinks-certificate-generator.php"
+            exit 1
+          fi
+          echo "version=$VER" >> "$GITHUB_OUTPUT"
+          echo "Building release $VER"
+
+      - name: Assemble plugin folder and zip
+        run: |
+          mkdir -p build/hostlinks-certificate-generator
+          rsync -a \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='.cursor' \
+            --exclude='build' \
+            --exclude='hostlinks-certificate-generator.zip' \
+            ./ build/hostlinks-certificate-generator/
+          (cd build && zip -rq "$GITHUB_WORKSPACE/hostlinks-certificate-generator.zip" hostlinks-certificate-generator)
+          ls -la hostlinks-certificate-generator.zip
+
+      - name: Create or update GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          ZIP="$GITHUB_WORKSPACE/hostlinks-certificate-generator.zip"
+          if gh release view "$VERSION" >/dev/null 2>&1; then
+            echo "Release $VERSION exists — replacing zip asset"
+            gh release upload "$VERSION" "$ZIP" --clobber
+          else
+            echo "Creating release $VERSION"
+            gh release create "$VERSION" "$ZIP" \
+              --title "$VERSION" \
+              --generate-notes
+          fi
