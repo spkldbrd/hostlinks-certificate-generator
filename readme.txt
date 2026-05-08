@@ -18,6 +18,11 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
+= 1.0.21 =
+* Fix: Certificate preview body text no longer clips when the page container is wide.
+* Improvement: Shell max-width raised to 1280px; preview certificate capped at 760px so it stays balanced at all container widths.
+* Improvement: Updater now busts its GitHub release cache when an admin visits the HL Certificates settings page, so a version check is always fresh on that page load.
+
 = 1.0.20 =
 * Change: Replace bundled Grant Writing / Grant Management certificate seals with updated stamp artwork.
 * Change: Two-day workshops now show 12 contact hours; Subaward now shows 6 contact hours.

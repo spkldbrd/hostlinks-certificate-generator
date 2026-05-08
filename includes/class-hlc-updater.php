@@ -53,6 +53,18 @@ class HLC_Updater {
 		add_filter( 'plugins_api',                           array( $this, 'plugin_info' ), 10, 3 );
 		add_filter( 'upgrader_source_selection',             array( $this, 'fix_source_dir' ), 10, 4 );
 		add_action( 'upgrader_process_complete',             array( $this, 'clear_cache' ), 10, 2 );
+
+		// Bust the release cache whenever an admin visits the plugin settings page
+		// so the version check always reflects the latest GitHub release immediately.
+		add_action( 'load-toplevel_page_hlc-settings', array( $this, 'bust_cache_on_page_load' ) );
+	}
+
+	// ── Cache bust on admin page visit ────────────────────────────────────────
+
+	public function bust_cache_on_page_load(): void {
+		delete_transient( $this->transient_key );
+		// Only deletes HLC's own cached release data — WordPress manages its
+		// own plugin update schedule separately.
 	}
 
 	// ── Fetch latest release from GitHub (cached 12 h) ───────────────────────
