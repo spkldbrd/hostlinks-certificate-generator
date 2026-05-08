@@ -33,7 +33,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			padding: 0;
 			width: 100%;
 			height: 100%;
-			background: #fbf7ec;
+			background: #ffffff;
 		}
 		body {
 			font-family: DejaVu Sans, sans-serif;
@@ -48,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			position: relative;
 		}
 		.paper {
-			background: #fbf7ec;
+			background: #ffffff;
 			border: 3px solid #9b2335;
 			height: 100%;
 			padding: 8px;
@@ -75,7 +75,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 			max-width: 280px;
 			margin: 0 auto 4px auto;
 			display: block;
-			mix-blend-mode: multiply;
 		}
 		.hdr-sub {
 			font-size: 8px;
@@ -182,16 +181,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 			color: rgba(26, 39, 68, 0.72);
 			margin: 4px 0 0 0;
 		}
-		.seal-wrap {
+		.seal-img {
 			width: 76px;
 			height: 76px;
+			display: block;
 			margin: 0 auto;
-			display: block;
-		}
-		.seal-wrap svg {
-			width: 76px;
-			height: 76px;
-			display: block;
 		}
 		.sig-img {
 			height: 72px;

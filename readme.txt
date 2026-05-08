@@ -18,6 +18,10 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
+= 1.0.13 =
+* Change: Certificate background is now white (PDF and preview) — no toner wasted on parchment fill
+* Change: All bundled JPEG assets re-composited on white so signature and logos render cleanly
+
 = 1.0.12 =
 * Fix: PDF generation crash ("The PHP GD extension is required") — switched all PDF images to JPEG so Dompdf's Cpdf renderer works without the GD extension
 * Fix: Dompdf render exceptions now caught and returned as a clean API error instead of a WordPress white-screen fatal

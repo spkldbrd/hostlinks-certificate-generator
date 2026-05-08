@@ -5,7 +5,7 @@
 	--hlc-crimson-deep: #7a1524;
 	--hlc-navy: #1a2744;
 	--hlc-ink: #2b2f44;
-	--hlc-parchment: #fbf7ec;
+	--hlc-parchment: #ffffff;
 	--hlc-gold: #b58c3c;
 	--hlc-muted: #64748b;
 	--hlc-border: #e2e8f0;
@@ -249,9 +249,7 @@
 	padding: 1.75rem 2rem 2.75rem;
 	position: relative;
 	text-align: center;
-	background:
-		radial-gradient(ellipse at top, rgba(255, 255, 255, 0.65) 0%, transparent 55%),
-		var(--hlc-parchment);
+	background: var(--hlc-parchment);
 	height: 100%;
 	box-sizing: border-box;
 	display: flex;
