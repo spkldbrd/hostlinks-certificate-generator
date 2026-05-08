@@ -195,9 +195,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 		}
 		.sig-script {
 			font-family: 'AlexBrush', 'DejaVu Serif', serif;
-			font-size: 44px;
+			font-size: 29px;
 			color: #1a2744;
-			margin: 0 0 -8px 0;
+			margin: 0 33px -13px 0;
 			padding: 0;
 			text-align: right;
 			line-height: 1;
