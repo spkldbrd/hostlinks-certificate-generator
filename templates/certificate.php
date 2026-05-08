@@ -24,8 +24,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<style>
 		@font-face {
-			font-family: 'GreatVibes';
-			src: url('<?php echo HLC_PLUGIN_DIR; ?>assets/fonts/GreatVibes-Regular.ttf') format('truetype');
+			font-family: 'AlexBrush';
+			src: url('<?php echo HLC_PLUGIN_DIR; ?>assets/fonts/AlexBrush-Regular.ttf') format('truetype');
 			font-weight: normal;
 			font-style: normal;
 		}
@@ -194,8 +194,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			margin: 0 auto;
 		}
 		.sig-script {
-			font-family: 'GreatVibes', 'DejaVu Serif', serif;
-			font-size: 38px;
+			font-family: 'AlexBrush', 'DejaVu Serif', serif;
+			font-size: 44px;
 			color: #1a2744;
 			margin: 0 0 -8px 0;
 			padding: 0;

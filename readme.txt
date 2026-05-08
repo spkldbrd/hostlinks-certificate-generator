@@ -18,6 +18,9 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
+= 1.0.15 =
+* Change: Signature font switched from Great Vibes to Alex Brush for a more natural ink-pen feel
+
 = 1.0.14 =
 * Fix: Replace signature image with Great Vibes script font text — eliminates white-background rectangle covering the rule line and name label
 * Improvement: Signature now renders identically in both live preview and PDF with no image dependency

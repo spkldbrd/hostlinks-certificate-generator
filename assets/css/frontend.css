@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap");
 
 .hlc-shell {
 	--hlc-crimson: #9b2335;
@@ -11,7 +11,7 @@
 	--hlc-border: #e2e8f0;
 	--font-display: "Playfair Display", Georgia, serif;
 	--font-serif: "Cormorant Garamond", Georgia, serif;
-	--font-script: "Great Vibes", cursive;
+	--font-script: "Alex Brush", "Great Vibes", cursive;
 	--font-sans: "Inter", system-ui, sans-serif;
 	max-width: 1120px;
 	margin: 0 auto;
@@ -460,7 +460,7 @@
 
 .hlc-cert-sig-script {
 	font-family: var(--font-script);
-	font-size: 2.4rem;
+	font-size: 2.8rem;
 	color: var(--hlc-navy);
 	margin: 0 0 -0.55rem 0;
 	padding: 0;
