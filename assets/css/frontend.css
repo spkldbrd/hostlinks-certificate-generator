@@ -257,7 +257,7 @@
 	display: flex !important;
 	flex-direction: column !important;
 	border: 1px solid rgba(181, 140, 60, 0.45);
-	padding: 1.75rem 2rem 2.75rem;
+	padding: 1.4rem 1.75rem 2.25rem;
 	position: relative;
 	text-align: center;
 	background: var(--hlc-parchment);
@@ -321,9 +321,9 @@
 }
 
 .hlc-cert-name {
-	margin: 0.75rem 0 0;
+	margin: 0.45rem 0 0;
 	font-family: var(--font-script);
-	font-size: clamp(2.25rem, 5vw, 3.75rem);
+	font-size: clamp(1.9rem, 4.5vw, 3.25rem);
 	line-height: 1.05;
 	color: var(--hlc-crimson-deep);
 	letter-spacing: 0.02em;
@@ -352,19 +352,19 @@
 }
 
 .hlc-cert-body {
-	margin: 1.25rem auto 0;
+	margin: 0.85rem auto 0;
 	max-width: 90%;
 	font-family: var(--font-serif);
-	font-size: 1.05rem;
+	font-size: 0.9rem;
 	font-style: italic;
-	line-height: 1.55;
+	line-height: 1.45;
 	color: rgba(43, 47, 68, 0.88);
 	position: relative;
 	z-index: 1;
 }
 
 .hlc-cert-program {
-	margin: 1rem 0 0;
+	margin: 0.6rem 0 0;
 	font-size: 0.68rem;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -377,13 +377,13 @@
 .hlc-cert-scroll {
 	flex: 1 1 auto;
 	min-height: 0;
-	overflow: visible;
+	overflow: hidden;
 	position: relative;
 	z-index: 1;
 }
 
 .hlc-cert-scroll .hlc-cert-presented {
-	margin-top: 1rem;
+	margin-top: 0.65rem;
 }
 
 /* Footer — pure flexbox so theme table resets cannot interfere */
@@ -476,8 +476,8 @@
 }
 
 .hlc-cert-seal-img {
-	width: 4.75rem !important;
-	height: 4.75rem !important;
+	width: 4rem !important;
+	height: 4rem !important;
 	max-width: none !important;
 	object-fit: contain;
 	display: block !important;

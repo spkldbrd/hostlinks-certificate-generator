@@ -18,6 +18,10 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
+= 1.0.24 =
+* Fix: Certificate scroll area reverted to overflow:hidden to prevent body text bleeding into the footer area.
+* Fix: Element sizes and margins reduced so all certificate content fits within the aspect-ratio-constrained preview at narrower page container widths (e.g. live site themes with a content max-width narrower than 1280px).
+
 = 1.0.23 =
 * Fix: Certificate footer replaced with pure flexbox layout — no longer uses a <table> element so theme CSS table resets (display: block on tr/td) cannot break the three-column layout.
 * Fix: Logo and seal images now explicitly clear floats so theme img { float } rules cannot displace them into the body text.
