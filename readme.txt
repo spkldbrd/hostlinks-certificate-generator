@@ -18,6 +18,10 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
+= 1.0.12 =
+* Fix: PDF generation crash ("The PHP GD extension is required") — switched all PDF images to JPEG so Dompdf's Cpdf renderer works without the GD extension
+* Fix: Dompdf render exceptions now caught and returned as a clean API error instead of a WordPress white-screen fatal
+
 = 1.0.11 =
 * Added a Class Type selector (Grant Writing / Grant Management / Subaward) at the top of the form. The selector now drives the certificate preview text, logo, and seal — no more dependence on per-event variant detection.
 * Event dropdown is filtered server-side by the chosen class type, so you only ever see events of the selected workshop type.

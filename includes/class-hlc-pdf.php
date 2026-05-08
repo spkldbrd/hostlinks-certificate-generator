@@ -9,14 +9,13 @@ use Dompdf\Options;
 
 class HLC_PDF {
 
-	public const BUNDLED_LOGO              = 'grant-writing-usa-logo.png';
-	public const LOGO_GRANT_WRITING        = 'logo-grant-writing-usa.png';
-	public const LOGO_GRANT_MANAGEMENT     = 'logo-grant-management-usa.png';
-	public const BUNDLED_SIGNATURE         = 'becky-helm-signature.png';
-	public const SEAL_GRANT_WRITING        = 'seal-grant-writing-usa.png';
-	public const SEAL_GRANT_MANAGEMENT     = 'seal-grant-management-usa.png';
-	public const SEAL_GW_SVG               = 'seal-grant-writing-usa.svg';
-	public const SEAL_GM_SVG               = 'seal-grant-management-usa.svg';
+	// JPEG variants (no GD needed by Dompdf's Cpdf renderer).
+	public const BUNDLED_LOGO              = 'grant-writing-usa-logo.jpg';
+	public const LOGO_GRANT_WRITING        = 'logo-grant-writing-usa.jpg';
+	public const LOGO_GRANT_MANAGEMENT     = 'logo-grant-management-usa.jpg';
+	public const BUNDLED_SIGNATURE         = 'becky-helm-signature.jpg';
+	public const SEAL_GRANT_WRITING        = 'seal-grant-writing-usa.jpg';
+	public const SEAL_GRANT_MANAGEMENT     = 'seal-grant-management-usa.jpg';
 
 	/** @var HLC_Access */
 	private $access;
@@ -55,7 +54,9 @@ class HLC_PDF {
 		$logo_attr       = $logo_uri !== '' ? htmlspecialchars( $logo_uri, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8' ) : '';
 		$signature_attr  = $signature_uri !== '' ? htmlspecialchars( $signature_uri, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8' ) : '';
 
-		$seal_svg = $this->seal_svg_for_pdf( $variant );
+		$seal_file = HLC_PLUGIN_DIR . 'assets/img/' . $this->bundled_seal_filename( $variant );
+		$seal_uri  = is_readable( $seal_file ) ? $this->file_to_data_uri( $seal_file ) : '';
+		$seal_attr = $seal_uri !== '' ? htmlspecialchars( $seal_uri, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8' ) : '';
 
 		$date_long = HLC_Certificate_Data::format_completion_date_long( $event );
 		$date_key  = $this->event_date_key( $event );
@@ -80,7 +81,12 @@ class HLC_PDF {
 		$dompdf = new Dompdf( $options );
 		$dompdf->loadHtml( $html );
 		$dompdf->setPaper( 'letter', 'landscape' );
-		$dompdf->render();
+
+		try {
+			$dompdf->render();
+		} catch ( \Throwable $e ) {
+			throw new RuntimeException( 'PDF rendering failed: ' . $e->getMessage(), 0, $e );
+		}
 
 		$binary = $dompdf->output();
 
@@ -117,38 +123,6 @@ class HLC_PDF {
 			return self::SEAL_GRANT_MANAGEMENT;
 		}
 		return self::SEAL_GRANT_WRITING;
-	}
-
-	/**
-	 * Return inline SVG markup for the seal, adapted for Dompdf fonts.
-	 * Falls back to empty string if the SVG file is missing.
-	 */
-	private function seal_svg_for_pdf( string $variant ): string {
-		$svg_file = ( HLC_Certificate_Data::VARIANT_GRANT_MANAGEMENT === $variant
-			|| HLC_Certificate_Data::VARIANT_SUBAWARD === $variant )
-			? self::SEAL_GM_SVG
-			: self::SEAL_GW_SVG;
-
-		$path = HLC_PLUGIN_DIR . 'assets/img/' . $svg_file;
-		if ( ! is_readable( $path ) ) {
-			return '';
-		}
-
-		// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
-		$svg = (string) file_get_contents( $path );
-		if ( $svg === '' ) {
-			return '';
-		}
-
-		// Set fixed pixel dimensions for Dompdf layout and swap to DejaVu Serif.
-		$svg = preg_replace( '/<svg\b/', '<svg width="76" height="76"', $svg, 1 );
-		$svg = str_replace(
-			'font-family="Times New Roman,Georgia,serif"',
-			'font-family="DejaVu Serif,serif"',
-			$svg
-		);
-
-		return $svg;
 	}
 
 	private function event_date_key( object $event ): string {

@@ -6,7 +6,7 @@
  * @var string $agency
  * @var string $logo_attr   safe attribute value for img src (data URI)
  * @var string $signature_attr
- * @var string $seal_svg    inline SVG markup (or empty string)
+ * @var string $seal_attr   safe attribute value for img src (data URI)
  * @var string $workshop_body
  * @var string $program_line
  * @var string $date_long
@@ -263,11 +263,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 								<p class="ft-date"><?php echo esc_html( $date_long ); ?></p>
 							</td>
 							<td class="ft-top" style="width: 28%;">
-								<?php if ( isset( $seal_svg ) && $seal_svg !== '' ) : ?>
-									<div class="seal-wrap"><?php echo $seal_svg; ?></div>
-								<?php else : ?>
-									<div style="height: 76px;"></div>
-								<?php endif; ?>
+			<?php if ( isset( $seal_attr ) && $seal_attr !== '' ) : ?>
+				<img class="seal-img" src="<?php echo $seal_attr; ?>" alt="" />
+			<?php else : ?>
+				<div style="height: 76px;"></div>
+			<?php endif; ?>
 							</td>
 							<td class="ft-top" style="width: 36%;">
 								<?php if ( $signature_attr !== '' ) : ?>
