@@ -18,6 +18,9 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
+= 1.0.18 =
+* Fix: Rewrite PDF layout — replace position:absolute footer with height:100% table layout; eliminates second blank page and gap between content and footer
+
 = 1.0.17 =
 * Feature: Email template editor — From Name, From Email, Subject, and Body are now configurable in plugin settings
 
