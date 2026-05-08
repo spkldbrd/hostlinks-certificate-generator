@@ -18,6 +18,11 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
+= 1.0.22 =
+* Fix: Certificate preview footer columns no longer collapse on live sites whose theme resets table elements to block display — explicit display: table/table-row/table-cell overrides now ensure the three-column footer always renders correctly.
+* Fix: Logo and seal images now resist theme img { max-width: 100% } rules that were distorting their dimensions.
+* Fix: Flex layout on certificate inner container protected against theme style resets.
+
 = 1.0.21 =
 * Fix: Certificate preview body text no longer clips when the page container is wide.
 * Improvement: Shell max-width raised to 1280px; preview certificate capped at 760px so it stays balanced at all container widths.

@@ -234,6 +234,7 @@
 }
 
 .hlc-cert-border-outer {
+	display: block !important;
 	background: var(--hlc-parchment);
 	border: 3px solid var(--hlc-crimson);
 	padding: 8px;
@@ -245,6 +246,7 @@
 }
 
 .hlc-cert-border-mid {
+	display: block !important;
 	border: 1px solid rgba(155, 35, 53, 0.42);
 	padding: 8px;
 	height: 100%;
@@ -252,6 +254,8 @@
 }
 
 .hlc-cert-inner {
+	display: flex !important;
+	flex-direction: column !important;
 	border: 1px solid rgba(181, 140, 60, 0.45);
 	padding: 1.75rem 2rem 2.75rem;
 	position: relative;
@@ -259,8 +263,6 @@
 	background: var(--hlc-parchment);
 	height: 100%;
 	box-sizing: border-box;
-	display: flex;
-	flex-direction: column;
 	overflow: hidden;
 }
 
@@ -277,10 +279,11 @@
 }
 
 .hlc-cert-logo {
-	height: 3.5rem;
-	width: auto;
+	height: 3.5rem !important;
+	width: auto !important;
+	max-width: none !important;
 	margin: 0 auto 0.35rem;
-	display: block;
+	display: block !important;
 	position: relative;
 	z-index: 1;
 	mix-blend-mode: multiply;
@@ -382,7 +385,9 @@
 	margin-top: 1rem;
 }
 
+/* Force table display even when the active theme resets table elements to block */
 .hlc-cert-ft-table {
+	display: table !important;
 	width: 100%;
 	border-collapse: collapse;
 	table-layout: fixed;
@@ -390,6 +395,14 @@
 	flex: 0 0 auto;
 	position: relative;
 	z-index: 1;
+}
+
+.hlc-cert-ft-table tr {
+	display: table-row !important;
+}
+
+.hlc-cert-ft-table td {
+	display: table-cell !important;
 }
 
 .hlc-cert-ft-top {
@@ -459,10 +472,11 @@
 }
 
 .hlc-cert-seal-img {
-	width: 4.75rem;
-	height: 4.75rem;
+	width: 4.75rem !important;
+	height: 4.75rem !important;
+	max-width: none !important;
 	object-fit: contain;
-	display: block;
+	display: block !important;
 	margin: 0 auto;
 	mix-blend-mode: multiply;
 }
