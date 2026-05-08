@@ -23,6 +23,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<style>
+		@font-face {
+			font-family: 'GreatVibes';
+			src: url('<?php echo HLC_PLUGIN_DIR; ?>assets/fonts/GreatVibes-Regular.ttf') format('truetype');
+			font-weight: normal;
+			font-style: normal;
+		}
 		@page {
 			size: letter landscape;
 			margin: 0.32in;
@@ -187,14 +193,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 			display: block;
 			margin: 0 auto;
 		}
-		.sig-img {
-			height: 72px;
-			width: auto;
-			max-width: 100%;
-			display: block;
-			margin: 0 4px -22px auto;
-			position: relative;
-			z-index: 2;
+		.sig-script {
+			font-family: 'GreatVibes', 'DejaVu Serif', serif;
+			font-size: 38px;
+			color: #1a2744;
+			margin: 0 0 -8px 0;
+			padding: 0;
+			text-align: right;
+			line-height: 1;
 		}
 		.sig-name {
 			font-size: 10px;
@@ -264,11 +270,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php endif; ?>
 							</td>
 							<td class="ft-top" style="width: 36%;">
-								<?php if ( $signature_attr !== '' ) : ?>
-									<img class="sig-img" src="<?php echo $signature_attr; ?>" alt="" />
-								<?php else : ?>
-									<div style="height: 46px;"></div>
-								<?php endif; ?>
+							<p class="sig-script">Becky Helm</p>
 							</td>
 						</tr>
 						<tr>

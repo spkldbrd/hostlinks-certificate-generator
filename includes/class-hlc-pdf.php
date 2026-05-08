@@ -49,10 +49,7 @@ class HLC_PDF {
 		$logo_id  = $this->access->get_logo_attachment_id_for_variant( $variant );
 		$logo_uri = $this->attachment_or_bundle_data_uri( $logo_id, $this->bundled_logo_filename( $variant ) );
 
-		$sig_id          = $this->access->get_signature_attachment_id();
-		$signature_uri   = $this->attachment_or_bundle_data_uri( $sig_id, self::BUNDLED_SIGNATURE );
-		$logo_attr       = $logo_uri !== '' ? htmlspecialchars( $logo_uri, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8' ) : '';
-		$signature_attr  = $signature_uri !== '' ? htmlspecialchars( $signature_uri, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8' ) : '';
+		$logo_attr = $logo_uri !== '' ? htmlspecialchars( $logo_uri, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8' ) : '';
 
 		$seal_file = HLC_PLUGIN_DIR . 'assets/img/' . $this->bundled_seal_filename( $variant );
 		$seal_uri  = is_readable( $seal_file ) ? $this->file_to_data_uri( $seal_file ) : '';
@@ -77,6 +74,7 @@ class HLC_PDF {
 		$options = new Options();
 		$options->set( 'isRemoteEnabled', false );
 		$options->set( 'defaultFont', 'DejaVu Sans' );
+		$options->set( 'chroot', ABSPATH );
 
 		$dompdf = new Dompdf( $options );
 		$dompdf->loadHtml( $html );

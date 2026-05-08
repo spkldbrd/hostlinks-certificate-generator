@@ -185,7 +185,7 @@ class HLC_Shortcode {
 														<img id="hlc-pr-seal" class="hlc-cert-seal-img" src="" alt="" aria-hidden="true" />
 													</td>
 													<td class="hlc-cert-ft-top hlc-cert-ft-w-sig">
-														<img id="hlc-pr-sig" class="hlc-cert-sig" src="" alt="" />
+														<p class="hlc-cert-sig-script">Becky Helm</p>
 													</td>
 												</tr>
 												<tr>

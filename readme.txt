@@ -18,6 +18,10 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
+= 1.0.14 =
+* Fix: Replace signature image with Great Vibes script font text — eliminates white-background rectangle covering the rule line and name label
+* Improvement: Signature now renders identically in both live preview and PDF with no image dependency
+
 = 1.0.13 =
 * Change: Certificate background is now white (PDF and preview) — no toner wasted on parchment fill
 * Change: All bundled JPEG assets re-composited on white so signature and logos render cleanly

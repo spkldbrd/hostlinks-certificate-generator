@@ -458,14 +458,14 @@
 	mix-blend-mode: multiply;
 }
 
-.hlc-cert-sig {
-	height: 5.5rem;
-	width: auto;
-	max-width: 100%;
-	margin: 0 0.25rem -2.1rem auto;
-	display: block;
-	position: relative;
-	z-index: 2;
+.hlc-cert-sig-script {
+	font-family: var(--font-script);
+	font-size: 2.4rem;
+	color: var(--hlc-navy);
+	margin: 0 0 -0.55rem 0;
+	padding: 0;
+	text-align: right;
+	line-height: 1;
 }
 
 .hlc-cert-sig-name {

@@ -135,9 +135,6 @@
 		var metaCert = el('hlc-pr-meta-cert');
 		if (metaCert) metaCert.textContent = 'Certificate No. ' + cid;
 
-		var prSig = el('hlc-pr-sig');
-		if (prSig && hlcData.media) prSig.src = hlcData.media.signature || '';
-
 		var mini = el('hlc-mini-meta');
 		if (mini && ev) {
 			mini.hidden = false;
@@ -210,12 +207,11 @@
 		if (!hlcData || !hlcData.media) return;
 		var urls = [
 			hlcData.media.logoGw,
-			hlcData.media.logoGm,
-			hlcData.media.logoSub,
-			hlcData.media.sealGw,
-			hlcData.media.sealGm,
-			hlcData.media.signature,
-		];
+		hlcData.media.logoGm,
+		hlcData.media.logoSub,
+		hlcData.media.sealGw,
+		hlcData.media.sealGm,
+	];
 		urls.forEach(function (url) {
 			if (url) { (new Image()).src = url; }
 		});
