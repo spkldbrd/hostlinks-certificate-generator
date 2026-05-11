@@ -18,6 +18,14 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
+= 1.0.26 =
+* Change: Removed "Office of Professional Development & Training" subheader from both preview and PDF.
+* Improvement: Logo enlarged to 4.5rem in preview / 140px in PDF.
+* Improvement: Name rule line sits immediately below recipient name.
+* Improvement: Body text increased to 1.1rem for better readability.
+* Improvement: Seal enlarged to 7rem (approximately 1.5x previous size).
+* New: Pen & flag watermark added at 50% opacity in lower-right corner of certificate (preview and PDF).
+
 = 1.0.25 =
 * Improvement: Name rule line sits tighter directly under the recipient name.
 * Improvement: Body text increased back to 1rem for better readability.

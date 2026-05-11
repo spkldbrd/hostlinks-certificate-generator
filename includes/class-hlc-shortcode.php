@@ -159,14 +159,10 @@ class HLC_Shortcode {
 							<div class="hlc-cert-border-outer">
 								<div class="hlc-cert-border-mid">
 									<div class="hlc-cert-inner">
-										<div class="hlc-cert-header">
-											<img id="hlc-pr-logo" class="hlc-cert-logo" src="" alt="" />
-											<p class="hlc-cert-ribbon">
-												<span class="hlc-cert-ribbon-line"></span>
-												Office of Professional Development &amp; Training
-												<span class="hlc-cert-ribbon-line"></span>
-											</p>
-										</div>
+									<div class="hlc-cert-header">
+										<img id="hlc-pr-logo" class="hlc-cert-logo" src="" alt="" />
+									</div>
+									<img class="hlc-cert-watermark" src="<?php echo esc_url( HLC_PLUGIN_URL . 'assets/img/logo-pen-watermark.png' ); ?>" alt="" aria-hidden="true" />
 										<div class="hlc-cert-scroll">
 											<p class="hlc-cert-presented">This Certificate is Proudly Presented to</p>
 											<p id="hlc-pr-name" class="hlc-cert-name">Recipient Name</p>

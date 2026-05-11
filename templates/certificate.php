@@ -59,12 +59,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 			padding: 8px;
 			margin: 5pt auto 0 auto;
 		}
-		.paper-inner {
-			border: 1px solid rgba(155, 35, 53, 0.45);
-			padding: 8px;
-			width: 726pt;
-			height: 546pt;
-		}
+	.paper-inner {
+		border: 1px solid rgba(155, 35, 53, 0.45);
+		padding: 8px;
+		width: 726pt;
+		height: 546pt;
+		position: relative;
+		overflow: hidden;
+	}
 		.paper-core {
 			border: 1px solid rgba(181, 140, 60, 0.5);
 			padding: 24px 28px 8px 28px;
@@ -92,29 +94,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 			padding: 0;
 		}
 
-		/* ── header / content ── */
-		.hdr-logo {
-			max-height: 112px;
-			width: auto;
-			max-width: 410px;
-			margin: 0 auto 6px auto;
-			display: block;
-		}
-		.hdr-sub {
-			font-size: 10px;
-			font-weight: 700;
-			letter-spacing: 0.36em;
-			text-transform: uppercase;
-			color: #1a2744;
-			margin: 3px 0 12px 0;
-		}
-		.hdr-line {
-			display: inline-block;
-			width: 32px;
-			border-top: 1px solid rgba(155, 35, 53, 0.55);
-			margin: 0 6px;
-			vertical-align: middle;
-		}
+	/* ── header / content ── */
+	.hdr-logo {
+		max-height: 140px;
+		width: auto;
+		max-width: 480px;
+		margin: 0 auto 8px auto;
+		display: block;
+	}
+	.watermark {
+		position: absolute;
+		bottom: 4pt;
+		right: 0;
+		height: 80%;
+		width: auto;
+		opacity: 0.5;
+	}
 		.presented {
 			font-size: 10px;
 			text-transform: uppercase;
@@ -130,10 +125,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 			margin: 0 0 10px 0;
 			font-weight: 400;
 		}
-		.name-line {
-			height: 1px;
-			width: 72%;
-			margin: 0 auto 18px auto;
+	.name-line {
+		height: 1px;
+		width: 72%;
+		margin: 2px auto 16px auto;
 			background-color: rgba(155, 35, 53, 0.4);
 		}
 		.agency {
@@ -244,20 +239,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="page">
 	<div class="paper">
 		<div class="paper-inner">
+			<img class="watermark" src="<?php echo esc_url( HLC_PLUGIN_URL . 'assets/img/logo-pen-watermark.png' ); ?>" alt="" />
 			<div class="paper-core">
 				<table class="cert-layout" cellspacing="0" cellpadding="0">
 					<tr>
 						<td class="cert-content">
-							<?php if ( $logo_attr !== '' ) : ?>
-								<img class="hdr-logo" src="<?php echo $logo_attr; ?>" alt="" />
-							<?php endif; ?>
-							<p class="hdr-sub">
-								<span class="hdr-line"></span>
-								Office of Professional Development &amp; Training
-								<span class="hdr-line"></span>
-							</p>
+						<?php if ( $logo_attr !== '' ) : ?>
+							<img class="hdr-logo" src="<?php echo $logo_attr; ?>" alt="" />
+						<?php endif; ?>
 
-							<p class="presented">This Certificate is Proudly Presented to</p>
+						<p class="presented">This Certificate is Proudly Presented to</p>
 							<p class="name"><?php echo esc_html( $participant_name ); ?></p>
 							<div class="name-line"></div>
 							<?php if ( $agency !== '' ) : ?>
