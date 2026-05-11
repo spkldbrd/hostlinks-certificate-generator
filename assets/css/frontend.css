@@ -334,7 +334,7 @@
 .hlc-cert-name-line {
 	height: 1px;
 	width: 72%;
-	margin: 0.5rem auto 0;
+	margin: 0.15rem auto 0;
 	background: rgba(155, 35, 53, 0.4);
 	position: relative;
 	z-index: 1;
@@ -352,10 +352,10 @@
 }
 
 .hlc-cert-body {
-	margin: 0.85rem auto 0;
+	margin: 0.75rem auto 0;
 	max-width: 90%;
 	font-family: var(--font-serif);
-	font-size: 0.9rem;
+	font-size: 1rem;
 	font-style: italic;
 	line-height: 1.45;
 	color: rgba(43, 47, 68, 0.88);
@@ -476,8 +476,8 @@
 }
 
 .hlc-cert-seal-img {
-	width: 4rem !important;
-	height: 4rem !important;
+	width: 4.75rem !important;
+	height: 4.75rem !important;
 	max-width: none !important;
 	object-fit: contain;
 	display: block !important;

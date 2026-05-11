@@ -18,6 +18,11 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
+= 1.0.25 =
+* Improvement: Name rule line sits tighter directly under the recipient name.
+* Improvement: Body text increased back to 1rem for better readability.
+* Improvement: Seal enlarged to 4.75rem in the preview.
+
 = 1.0.24 =
 * Fix: Certificate scroll area reverted to overflow:hidden to prevent body text bleeding into the footer area.
 * Fix: Element sizes and margins reduced so all certificate content fits within the aspect-ratio-constrained preview at narrower page container widths (e.g. live site themes with a content max-width narrower than 1280px).
