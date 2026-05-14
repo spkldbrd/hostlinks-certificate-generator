@@ -106,9 +106,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 		position: absolute;
 		bottom: 4pt;
 		right: 0;
-		height: 80%;
+		height: 500pt;
 		width: auto;
-		opacity: 0.5;
+		opacity: 0.25;
 	}
 		.presented {
 			font-size: 10px;
@@ -117,14 +117,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 			color: rgba(26, 39, 68, 0.82);
 			margin: 14px 0 8px 0;
 		}
-		.name {
-			font-family: 'AlexBrush', DejaVu Serif, serif;
-			font-size: 46px;
-			line-height: 1;
-			color: #7a1524;
-			margin: 0 0 10px 0;
-			font-weight: 400;
-		}
+	.name {
+		font-family: 'AlexBrush', DejaVu Serif, serif;
+		font-size: 46px;
+		line-height: 1;
+		color: #7a1524;
+		margin: 0 0 -50px 0;
+		font-weight: 400;
+	}
 	.name-line {
 		height: 1px;
 		width: 72%;

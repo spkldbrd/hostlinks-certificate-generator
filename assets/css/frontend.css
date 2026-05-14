@@ -294,10 +294,10 @@
 	position: absolute !important;
 	bottom: 2% !important;
 	right: 0 !important;
-	height: 80% !important;
+	height: calc(80% + 150px) !important;
 	width: auto !important;
 	max-width: none !important;
-	opacity: 0.5;
+	opacity: 0.25;
 	mix-blend-mode: multiply;
 	pointer-events: none;
 	display: block !important;
@@ -336,7 +336,7 @@
 }
 
 .hlc-cert-name {
-	margin: 0.45rem 0 0;
+	margin: 0.45rem 0 -3.75rem;
 	font-family: var(--font-script);
 	font-size: clamp(1.9rem, 4.5vw, 3.25rem);
 	line-height: 1.05;
