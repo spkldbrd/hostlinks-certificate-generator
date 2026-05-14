@@ -45,46 +45,46 @@ if ( ! defined( 'ABSPATH' ) ) {
 			color: #2b2f44;
 		}
 
-		/* ── outer page shell — full letter landscape 792×612pt ── */
+		/* ── outer page shell ── */
 		.page {
-			width: 792pt;
-			height: 612pt;
+			width: 780pt;
+			height: 600pt;
 			page-break-inside: avoid;
 			page-break-after: avoid;
 		}
 		.paper {
 			background: #ffffff;
 			border: 3px solid #9b2335;
-			width: 756pt;
-			height: 582pt;
+			width: 766pt;
+			height: 588pt;
 			padding: 8px;
-			margin: 15pt auto 0 auto;
+			margin: 6pt auto 0 auto;
 		}
 	.paper-inner {
 		border: 1px solid rgba(155, 35, 53, 0.45);
 		padding: 8px;
-		width: 734pt;
-		height: 560pt;
+		width: 744pt;
+		height: 566pt;
 		position: relative;
 		overflow: hidden;
 	}
 		.paper-core {
 			border: 1px solid rgba(181, 140, 60, 0.5);
 			padding: 20px 28px 8px 28px;
-			width: 676pt;
-			height: 524pt;
+			width: 684pt;
+			height: 528pt;
 		}
 
 		/* ── two-row layout table (fills paper-core) ── */
 		.cert-layout {
 			width: 100%;
-			height: 524pt;
+			height: 528pt;
 			border-collapse: collapse;
 			table-layout: fixed;
 		}
-		/* content row — vertically centred so gap distributes evenly */
+		/* content row */
 		.cert-content {
-			vertical-align: middle;
+			vertical-align: top;
 			text-align: center;
 			padding: 0;
 		}
@@ -123,14 +123,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 		text-transform: uppercase;
 		letter-spacing: 0.32em;
 		color: rgba(26, 39, 68, 0.82);
-		margin: 24px 0 0 0;
+		margin: 36px 0 0 0;
 	}
 	.name {
 		font-family: 'AlexBrush', DejaVu Serif, serif;
 		font-size: 46px;
 		line-height: 1;
 		color: #7a1524;
-		margin: 16px 0 0 0;
+		margin: 30px 0 0 0;
 		font-weight: 400;
 	}
 	.name-line {
@@ -145,7 +145,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		text-transform: uppercase;
 		letter-spacing: 0.24em;
 		color: #1a2744;
-		margin: 12px 0 0 0;
+		margin: 22px 0 0 0;
 	}
 	.body-text {
 		font-family: DejaVu Serif, serif;
@@ -153,7 +153,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		font-style: italic;
 		line-height: 1.45;
 		color: rgba(43, 47, 68, 0.88);
-		margin: 28px 0 0 0;
+		margin: 40px 0 0 0;
 		max-width: 100%;
 	}
 	.event-details-inline {
@@ -163,7 +163,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		text-transform: uppercase;
 		letter-spacing: 0.28em;
 		color: #1a2744;
-		margin: 10px 0 0 0;
+		margin: 18px 0 0 0;
 	}
 	.program {
 		font-size: 12px;
@@ -171,7 +171,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		text-transform: uppercase;
 		letter-spacing: 0.28em;
 		color: #9b2335;
-		margin: 24px 0 0 0;
+		margin: 40px 0 0 0;
 	}
 
 		/* ── footer ── */

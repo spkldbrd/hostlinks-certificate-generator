@@ -18,6 +18,11 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
+= 1.0.43 =
+* Fix: Emailed PDF page shell reverted to safe 780×600pt to eliminate Dompdf blank-page clipping at exact page bounds (792×612pt).
+* Fix: Content cell changed back to vertical-align:top with individually tuned top-margins to naturally fill the certificate area without overflow.
+* Improvement: All inter-element spacing values re-calibrated (presented 36px, name 30px, body 40px, program 40px, completed 18px) matching the browser-printed layout.
+
 = 1.0.42 =
 * Fix: Emailed PDF page shell expanded to full letter landscape (792×612pt) so certificate fills the page correctly.
 * Fix: Content cell changed to vertical-align:middle so remaining space distributes evenly rather than leaving a large gap before the signature.
