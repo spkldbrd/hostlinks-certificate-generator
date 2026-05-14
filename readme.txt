@@ -18,6 +18,11 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
+= 1.0.28 =
+* Change: Seal (circular emblem) moved to lower-left corner of certificate.
+* Change: Event details (dates and location) moved into certificate body below the body text.
+* Change: Certificate number label updated to "Certificate of Completion No."
+
 = 1.0.27 =
 * Improvement: Pen watermark enlarged by 150px and opacity reduced to 25%.
 * Improvement: Name rule line and body text moved up 60px closer to recipient name (preview and PDF).

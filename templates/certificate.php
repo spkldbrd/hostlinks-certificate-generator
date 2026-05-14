@@ -148,14 +148,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 			margin: 0 auto 0 auto;
 			max-width: 88%;
 		}
-		.program {
-			font-size: 10px;
-			font-weight: 700;
-			text-transform: uppercase;
-			letter-spacing: 0.28em;
-			color: #9b2335;
-			margin: 18px 0 0 0;
-		}
+	.event-details-inline {
+		font-family: DejaVu Serif, serif;
+		font-size: 14px;
+		font-weight: 700;
+		line-height: 1.3;
+		color: #1a2744;
+		margin: 10px auto 0 auto;
+	}
+	.program {
+		font-size: 10px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.28em;
+		color: #9b2335;
+		margin: 12px 0 0 0;
+	}
 
 		/* ── footer ── */
 		.footer-table {
@@ -255,45 +263,42 @@ if ( ! defined( 'ABSPATH' ) ) {
 								<p class="agency"><?php echo esc_html( $agency ); ?></p>
 							<?php endif; ?>
 
-							<p class="body-text"><?php echo esc_html( $workshop_body ); ?></p>
-							<p class="program"><?php echo esc_html( $program_line ); ?></p>
-						</td>
-					</tr>
-					<tr>
-						<td class="cert-foot">
-							<table class="footer-table" cellspacing="0" cellpadding="0">
-								<tr>
-									<td class="ft-top" style="width:36%;">
-										<p class="ft-date"><?php echo nl2br( esc_html( $event_details ) ); ?></p>
-									</td>
-									<td class="ft-top" style="width:28%; text-align:center;">
-										<?php if ( isset( $seal_attr ) && $seal_attr !== '' ) : ?>
-											<img class="seal-img" src="<?php echo $seal_attr; ?>" alt="" />
-										<?php else : ?>
-											<div style="height:122px;"></div>
-										<?php endif; ?>
-									</td>
-									<td class="ft-top" style="width:36%;">
-										<p class="sig-script">Rebecca Helm</p>
-									</td>
-								</tr>
-								<tr>
-									<td class="ft-mid"><div class="ft-rule"></div></td>
-									<td class="ft-mid"></td>
-									<td class="ft-mid"><div class="ft-rule"></div></td>
-								</tr>
-								<tr>
-									<td class="ft-bot">
-										<p class="ft-label">Event Details</p>
-									</td>
-									<td class="ft-bot"></td>
-									<td class="ft-bot">
-										<p class="sig-name">Rebecca Helm</p>
-										<p class="sig-title">Chief Executive Officer</p>
-									</td>
-								</tr>
-							</table>
-							<p class="meta-cert">Certificate No. <?php echo esc_html( $certificate_id ); ?></p>
+						<p class="body-text"><?php echo esc_html( $workshop_body ); ?></p>
+						<?php if ( $event_details !== '' ) : ?>
+							<p class="event-details-inline"><?php echo nl2br( esc_html( $event_details ) ); ?></p>
+						<?php endif; ?>
+						<p class="program"><?php echo esc_html( $program_line ); ?></p>
+					</td>
+				</tr>
+				<tr>
+					<td class="cert-foot">
+						<table class="footer-table" cellspacing="0" cellpadding="0">
+							<tr>
+								<td class="ft-top" style="width:36%; text-align:left; vertical-align:bottom;">
+									<?php if ( isset( $seal_attr ) && $seal_attr !== '' ) : ?>
+										<img class="seal-img" src="<?php echo $seal_attr; ?>" alt="" style="margin:0;" />
+									<?php endif; ?>
+								</td>
+								<td class="ft-top" style="width:28%;"></td>
+								<td class="ft-top" style="width:36%;">
+									<p class="sig-script">Rebecca Helm</p>
+								</td>
+							</tr>
+							<tr>
+								<td class="ft-mid"></td>
+								<td class="ft-mid"></td>
+								<td class="ft-mid"><div class="ft-rule"></div></td>
+							</tr>
+							<tr>
+								<td class="ft-bot"></td>
+								<td class="ft-bot"></td>
+								<td class="ft-bot">
+									<p class="sig-name">Rebecca Helm</p>
+									<p class="sig-title">Chief Executive Officer</p>
+								</td>
+							</tr>
+						</table>
+						<p class="meta-cert">Certificate of Completion No. <?php echo esc_html( $certificate_id ); ?></p>
 						</td>
 					</tr>
 				</table>

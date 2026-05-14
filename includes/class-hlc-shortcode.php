@@ -163,43 +163,40 @@ class HLC_Shortcode {
 										<img id="hlc-pr-logo" class="hlc-cert-logo" src="" alt="" />
 									</div>
 									<img class="hlc-cert-watermark" src="<?php echo esc_url( HLC_PLUGIN_URL . 'assets/img/logo-pen-watermark.png' ); ?>" alt="" aria-hidden="true" />
-										<div class="hlc-cert-scroll">
-											<p class="hlc-cert-presented">This Certificate is Proudly Presented to</p>
-											<p id="hlc-pr-name" class="hlc-cert-name">Recipient Name</p>
-											<div class="hlc-cert-name-line"></div>
-											<p id="hlc-pr-agency" class="hlc-cert-agency" hidden></p>
-											<p id="hlc-pr-body" class="hlc-cert-body"></p>
-											<p id="hlc-pr-program" class="hlc-cert-program"></p>
+									<div class="hlc-cert-scroll">
+										<p class="hlc-cert-presented">This Certificate is Proudly Presented to</p>
+										<p id="hlc-pr-name" class="hlc-cert-name">Recipient Name</p>
+										<div class="hlc-cert-name-line"></div>
+										<p id="hlc-pr-agency" class="hlc-cert-agency" hidden></p>
+										<p id="hlc-pr-body" class="hlc-cert-body"></p>
+										<p id="hlc-pr-datelong" class="hlc-cert-event-details"></p>
+										<p id="hlc-pr-program" class="hlc-cert-program"></p>
+									</div>
+								<div class="hlc-cert-footer">
+									<div class="hlc-cert-footer-row hlc-cert-footer-top">
+										<div class="hlc-cert-ft-col hlc-cert-ft-w-date">
+											<img id="hlc-pr-seal" class="hlc-cert-seal-img hlc-cert-seal-left" src="" alt="" aria-hidden="true" />
 										</div>
-									<div class="hlc-cert-footer">
-										<div class="hlc-cert-footer-row hlc-cert-footer-top">
-											<div class="hlc-cert-ft-col hlc-cert-ft-w-date">
-												<p id="hlc-pr-datelong" class="hlc-cert-ft-date">—</p>
-											</div>
-											<div class="hlc-cert-ft-col hlc-cert-ft-w-seal">
-												<img id="hlc-pr-seal" class="hlc-cert-seal-img" src="" alt="" aria-hidden="true" />
-											</div>
-											<div class="hlc-cert-ft-col hlc-cert-ft-w-sig">
-												<p class="hlc-cert-sig-script">Rebecca Helm</p>
-											</div>
-										</div>
-										<div class="hlc-cert-footer-row hlc-cert-footer-rules">
-											<div class="hlc-cert-ft-col hlc-cert-ft-w-date"><div class="hlc-cert-ft-rule"></div></div>
-											<div class="hlc-cert-ft-col hlc-cert-ft-w-seal"></div>
-											<div class="hlc-cert-ft-col hlc-cert-ft-w-sig"><div class="hlc-cert-ft-rule"></div></div>
-										</div>
-										<div class="hlc-cert-footer-row hlc-cert-footer-labels">
-											<div class="hlc-cert-ft-col hlc-cert-ft-w-date">
-												<p class="hlc-cert-ft-lbl">Event Details</p>
-											</div>
-											<div class="hlc-cert-ft-col hlc-cert-ft-w-seal"></div>
-											<div class="hlc-cert-ft-col hlc-cert-ft-w-sig hlc-cert-ft-bot-sig">
-												<p class="hlc-cert-sig-name">Rebecca Helm</p>
-												<p class="hlc-cert-sig-title">Chief Executive Officer</p>
-											</div>
+										<div class="hlc-cert-ft-col hlc-cert-ft-w-seal"></div>
+										<div class="hlc-cert-ft-col hlc-cert-ft-w-sig">
+											<p class="hlc-cert-sig-script">Rebecca Helm</p>
 										</div>
 									</div>
-										<div class="hlc-cert-meta" id="hlc-pr-meta-cert">Certificate No. —</div>
+									<div class="hlc-cert-footer-row hlc-cert-footer-rules">
+										<div class="hlc-cert-ft-col hlc-cert-ft-w-date"></div>
+										<div class="hlc-cert-ft-col hlc-cert-ft-w-seal"></div>
+										<div class="hlc-cert-ft-col hlc-cert-ft-w-sig"><div class="hlc-cert-ft-rule"></div></div>
+									</div>
+									<div class="hlc-cert-footer-row hlc-cert-footer-labels">
+										<div class="hlc-cert-ft-col hlc-cert-ft-w-date"></div>
+										<div class="hlc-cert-ft-col hlc-cert-ft-w-seal"></div>
+										<div class="hlc-cert-ft-col hlc-cert-ft-w-sig hlc-cert-ft-bot-sig">
+											<p class="hlc-cert-sig-name">Rebecca Helm</p>
+											<p class="hlc-cert-sig-title">Chief Executive Officer</p>
+										</div>
+									</div>
+								</div>
+									<div class="hlc-cert-meta" id="hlc-pr-meta-cert">Certificate of Completion No. —</div>
 									</div>
 								</div>
 							</div>

@@ -142,7 +142,7 @@
 		if (prCid) prCid.textContent = cid;
 
 		var metaCert = el('hlc-pr-meta-cert');
-		if (metaCert) metaCert.textContent = 'Certificate No. ' + cid;
+		if (metaCert) metaCert.textContent = 'Certificate of Completion No. ' + cid;
 
 		var mini = el('hlc-mini-meta');
 		if (mini && ev) {
