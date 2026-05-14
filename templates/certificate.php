@@ -108,7 +108,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		right: 0;
 		height: 500pt;
 		width: auto;
-		opacity: 0.15;
+		opacity: 0.10;
 	}
 		.presented {
 			font-size: 10px;

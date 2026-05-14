@@ -18,8 +18,8 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
-= 1.0.29 =
-* Improvement: Pen watermark opacity reduced to 15%.
+= 1.0.30 =
+* Improvement: Pen watermark opacity reduced to 10%.
 
 = 1.0.28 =
 * Change: Seal (circular emblem) moved to lower-left corner of certificate.
