@@ -96,7 +96,7 @@ class HLC_Shortcode {
 			<main class="hlc-grid">
 				<aside class="hlc-aside">
 					<p class="hlc-lead">Issue a certificate</p>
-					<p class="hlc-muted">Pick the class type, the year, and optionally the month, choose an event, then download or email the PDF.</p>
+					<p class="hlc-muted">Pick the class type, the year, and optionally the month, choose an event, then download the PDF. Email delivery is coming soon.</p>
 
 					<div class="hlc-card">
 						<select id="hlc-filter-class" class="hlc-input hlc-input--select" aria-label="Class type">
@@ -144,7 +144,7 @@ class HLC_Shortcode {
 
 					<div class="hlc-actions">
 						<button type="button" class="hlc-btn hlc-btn--primary" id="hlc-download">Print / Save PDF</button>
-						<button type="button" class="hlc-btn hlc-btn--outline" id="hlc-email-send">Email PDF</button>
+						<button type="button" class="hlc-btn hlc-btn--outline" id="hlc-email-send" disabled title="Email PDF coming soon">Email PDF (Coming soon)</button>
 					</div>
 					<p id="hlc-status" class="hlc-status" aria-live="polite"></p>
 				</aside>

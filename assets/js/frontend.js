@@ -403,6 +403,6 @@
 		}
 
 		if (btnDl) btnDl.addEventListener('click', printPreviewPdf);
-		if (btnMail) btnMail.addEventListener('click', function () { requestPdf('email'); });
+		if (btnMail) btnMail.disabled = true;
 	});
 })();

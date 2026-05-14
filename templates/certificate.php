@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Dompdf: fixed US Letter landscape (11in × 8.5in).
  * Use explicit point dimensions rather than nested 100% heights; Dompdf counts
@@ -54,15 +54,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 		}
 		.paper {
 			background: #ffffff;
-			border: 3px solid #9b2335;
+			border: 2pt solid #9b2335;
 			width: 766pt;
 			height: 588pt;
-			padding: 8px;
+			padding: 8pt;
 			margin: 6pt auto 0 auto;
 		}
 	.paper-inner {
-		border: 1px solid rgba(155, 35, 53, 0.45);
-		padding: 8px;
+		border: 1pt solid rgba(155, 35, 53, 0.45);
+		padding: 8pt;
 		width: 744pt;
 		height: 566pt;
 		position: relative;
@@ -70,7 +70,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	}
 		.paper-core {
 			border: 1px solid rgba(181, 140, 60, 0.5);
-			padding: 20px 28px 8px 28px;
+			padding: 14pt;
 			width: 684pt;
 			height: 528pt;
 		}
@@ -113,7 +113,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	}
 	.seal-abs {
 		position: absolute;
-		left: 28px;
+		left: 14pt;
 		bottom: 44pt;
 		width: 112px;
 		height: 112px;

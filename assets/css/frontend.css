@@ -333,7 +333,7 @@
 .hlc-shell .hlc-cert-border-outer {
 	display: block;
 	background: var(--hlc-parchment);
-	border: 3px solid var(--hlc-crimson);
+	border: 2px solid var(--hlc-crimson);
 	padding: 8px;
 	box-shadow:
 		0 1px 0 rgba(255, 255, 255, 0.5) inset,
@@ -354,7 +354,7 @@
 	display: flex;
 	flex-direction: column;
 	border: 1px solid rgba(181, 140, 60, 0.45);
-	padding: 1.4rem 1.75rem 2.25rem;
+	padding: 0.875rem;
 	position: relative;
 	text-align: center;
 	background: var(--hlc-parchment);

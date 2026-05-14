@@ -18,6 +18,10 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
+= 1.0.44 =
+* Change: Email PDF button disabled and labelled "Coming soon" while email delivery is under development.
+* Fix: certificate.php border units standardised (px → pt); seal left position adjusted for uniform spacing.
+
 = 1.0.43 =
 * Fix: Emailed PDF page shell reverted to safe 780×600pt to eliminate Dompdf blank-page clipping at exact page bounds (792×612pt).
 * Fix: Content cell changed back to vertical-align:top with individually tuned top-margins to naturally fill the certificate area without overflow.
