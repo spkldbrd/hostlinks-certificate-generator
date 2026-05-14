@@ -45,53 +45,53 @@ if ( ! defined( 'ABSPATH' ) ) {
 			color: #2b2f44;
 		}
 
-		/* ── outer page shell ── */
+		/* ── outer page shell — full letter landscape 792×612pt ── */
 		.page {
-			width: 780pt;
-			height: 600pt;
+			width: 792pt;
+			height: 612pt;
 			page-break-inside: avoid;
 			page-break-after: avoid;
 		}
 		.paper {
 			background: #ffffff;
 			border: 3px solid #9b2335;
-			width: 748pt;
-			height: 568pt;
+			width: 756pt;
+			height: 582pt;
 			padding: 8px;
-			margin: 5pt auto 0 auto;
+			margin: 15pt auto 0 auto;
 		}
 	.paper-inner {
 		border: 1px solid rgba(155, 35, 53, 0.45);
 		padding: 8px;
-		width: 726pt;
-		height: 546pt;
+		width: 734pt;
+		height: 560pt;
 		position: relative;
 		overflow: hidden;
 	}
 		.paper-core {
 			border: 1px solid rgba(181, 140, 60, 0.5);
-			padding: 24px 28px 8px 28px;
-			width: 668pt;
-			height: 510pt;
+			padding: 20px 28px 8px 28px;
+			width: 676pt;
+			height: 524pt;
 		}
 
 		/* ── two-row layout table (fills paper-core) ── */
 		.cert-layout {
 			width: 100%;
-			height: 510pt;
+			height: 524pt;
 			border-collapse: collapse;
 			table-layout: fixed;
 		}
-		/* content row — grows to fill remaining space */
+		/* content row — vertically centred so gap distributes evenly */
 		.cert-content {
-			vertical-align: top;
+			vertical-align: middle;
 			text-align: center;
 			padding: 0;
 		}
 		/* footer row — fixed height, content sits at bottom */
 		.cert-foot {
 			vertical-align: bottom;
-			height: 138pt;
+			height: 140pt;
 			padding: 0;
 		}
 
@@ -107,7 +107,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		position: absolute;
 		bottom: 0;
 		right: 0;
-		height: 380pt;
+		height: 400pt;
 		width: auto;
 		opacity: 0.10;
 	}
@@ -123,14 +123,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 		text-transform: uppercase;
 		letter-spacing: 0.32em;
 		color: rgba(26, 39, 68, 0.82);
-		margin: 18px 0 0 0;
+		margin: 24px 0 0 0;
 	}
 	.name {
 		font-family: 'AlexBrush', DejaVu Serif, serif;
 		font-size: 46px;
 		line-height: 1;
 		color: #7a1524;
-		margin: 12px 0 0 0;
+		margin: 16px 0 0 0;
 		font-weight: 400;
 	}
 	.name-line {
@@ -145,7 +145,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		text-transform: uppercase;
 		letter-spacing: 0.24em;
 		color: #1a2744;
-		margin: 10px 0 0 0;
+		margin: 12px 0 0 0;
 	}
 	.body-text {
 		font-family: DejaVu Serif, serif;
@@ -153,7 +153,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		font-style: italic;
 		line-height: 1.45;
 		color: rgba(43, 47, 68, 0.88);
-		margin: 20px 0 0 0;
+		margin: 28px 0 0 0;
 		max-width: 100%;
 	}
 	.event-details-inline {
@@ -163,7 +163,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		text-transform: uppercase;
 		letter-spacing: 0.28em;
 		color: #1a2744;
-		margin: 7px 0 0 0;
+		margin: 10px 0 0 0;
 	}
 	.program {
 		font-size: 12px;
@@ -171,7 +171,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		text-transform: uppercase;
 		letter-spacing: 0.28em;
 		color: #9b2335;
-		margin: 18px 0 0 0;
+		margin: 24px 0 0 0;
 	}
 
 		/* ── footer ── */

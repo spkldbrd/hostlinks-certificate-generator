@@ -18,6 +18,11 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
+= 1.0.42 =
+* Fix: Emailed PDF page shell expanded to full letter landscape (792×612pt) so certificate fills the page correctly.
+* Fix: Content cell changed to vertical-align:middle so remaining space distributes evenly rather than leaving a large gap before the signature.
+* Improvement: Increased content-area spacing (presented, name, body, program) to better match the browser print proportions.
+
 = 1.0.41 =
 * Fix: Emailed PDF seal increased to 112px (matching 7rem live preview). Presented, program, and completed-date font sizes increased for better readability on full-page PDF.
 
