@@ -297,7 +297,7 @@
 	height: calc(80% + 150px) !important;
 	width: auto !important;
 	max-width: none !important;
-	opacity: 0.25;
+	opacity: 0.15;
 	mix-blend-mode: multiply;
 	pointer-events: none;
 	display: block !important;
