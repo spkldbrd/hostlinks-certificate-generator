@@ -18,6 +18,9 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
+= 1.0.38 =
+* Improvement: Reduced inter-element spacing by another 10%. Body margin set to 1.25rem 0 auto 0.
+
 = 1.0.37 =
 * Fix: CI workflow now runs `composer install --no-dev` before packaging so the Dompdf vendor library is included in the release zip. Previously the zip was missing the vendor directory, causing "PDF library is not installed" errors on live sites.
 * Fix: `composer.lock` committed to git for reproducible CI installs.

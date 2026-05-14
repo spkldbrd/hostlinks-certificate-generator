@@ -436,7 +436,7 @@
 }
 
 .hlc-shell .hlc-cert-name {
-	margin: 0.85rem 0 0;
+	margin: 0.75rem 0 0;
 	font-family: var(--font-script);
 	font-size: clamp(1.9rem, 4.5vw, 3.25rem);
 	line-height: 1.05;
@@ -467,7 +467,7 @@
 }
 
 .hlc-shell .hlc-cert-body {
-	margin: 1.25rem auto 0;
+	margin: 1.25rem 0 auto 0;
 	max-width: 90%;
 	font-family: var(--font-serif);
 	font-size: 1.1rem;
@@ -480,7 +480,7 @@
 
 /* Event details — inside .hlc-cert-scroll, just below the program/hours line */
 .hlc-shell .hlc-cert-event-details {
-	margin: 0.45rem 0 0;
+	margin: 0.4rem 0 0;
 	text-align: center;
 	font-family: var(--font-sans);
 	font-size: 0.61rem;
@@ -494,7 +494,7 @@
 }
 
 .hlc-shell .hlc-cert-program {
-	margin: 1.25rem 0 0;
+	margin: 1.1rem 0 0;
 	font-size: 0.68rem;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -514,7 +514,7 @@
 }
 
 .hlc-cert-scroll .hlc-cert-presented {
-	margin-top: 1.4rem;
+	margin-top: 1.25rem;
 }
 
 /* ── Certificate footer (flexbox — immune to table resets) ──────────── */
