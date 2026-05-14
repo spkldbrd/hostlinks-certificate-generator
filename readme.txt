@@ -18,6 +18,9 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
+= 1.0.41 =
+* Fix: Emailed PDF seal increased to 112px (matching 7rem live preview). Presented, program, and completed-date font sizes increased for better readability on full-page PDF.
+
 = 1.0.40 =
 * Fix: Emailed PDF watermark converted from PNG to JPEG and loaded as a data URI so Dompdf renders it without needing the GD extension.
 * Fix: Removed negative bottom margin on recipient name in Dompdf template that was causing name/body text overlap.

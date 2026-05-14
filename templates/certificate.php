@@ -115,11 +115,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 		position: absolute;
 		left: 28px;
 		bottom: 44pt;
-		width: 80px;
-		height: 80px;
+		width: 112px;
+		height: 112px;
 	}
 		.presented {
-		font-size: 10px;
+		font-size: 12px;
 		text-transform: uppercase;
 		letter-spacing: 0.32em;
 		color: rgba(26, 39, 68, 0.82);
@@ -158,7 +158,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	}
 	.event-details-inline {
 		font-family: DejaVu Sans, sans-serif;
-		font-size: 9px;
+		font-size: 11px;
 		font-weight: 700;
 		text-transform: uppercase;
 		letter-spacing: 0.28em;
@@ -166,7 +166,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		margin: 7px 0 0 0;
 	}
 	.program {
-		font-size: 10px;
+		font-size: 12px;
 		font-weight: 700;
 		text-transform: uppercase;
 		letter-spacing: 0.28em;
