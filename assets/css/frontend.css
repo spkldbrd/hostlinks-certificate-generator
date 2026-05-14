@@ -292,9 +292,9 @@
 
 .hlc-cert-watermark {
 	position: absolute !important;
-	bottom: 2% !important;
+	bottom: 0 !important;
 	right: 0 !important;
-	height: calc(80% + 150px) !important;
+	height: 70% !important;
 	width: auto !important;
 	max-width: none !important;
 	opacity: 0.10;
@@ -379,7 +379,10 @@
 }
 
 .hlc-cert-event-details {
-	margin: 0.5rem auto 0;
+	/* Direct flex child of .hlc-cert-inner — not inside scroll so overflow:hidden cannot clip it */
+	flex: 0 0 auto;
+	margin: 0.35rem auto 0;
+	text-align: center;
 	font-family: var(--font-serif);
 	font-size: 0.8rem;
 	font-weight: 700;
@@ -513,9 +516,15 @@
 	mix-blend-mode: multiply;
 }
 
-/* Seal in lower-left corner — remove auto-centering */
+/* Seal absolutely positioned lower-left, aligned with signature area */
 .hlc-cert-seal-left {
+	position: absolute !important;
+	left: 1.75rem !important;
+	bottom: 2.75rem !important;
+	width: 5rem !important;
+	height: 5rem !important;
 	margin: 0 !important;
+	z-index: 1;
 }
 
 .hlc-cert-sig-script {

@@ -18,6 +18,11 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
+= 1.0.32 =
+* Fix: Seal moved to absolutely-positioned lower-left so it aligns with the Rebecca Helm signature area and no longer controls footer row height.
+* Fix: Event details moved outside the scroll div so overflow:hidden can no longer clip the dates/location text.
+* Fix: Watermark height reduced to 70% anchored at bottom:0 so the full image is visible without clipping.
+
 = 1.0.31 =
 * Improvement: "Chief Executive Officer" label reduced to 0.45rem and gap above it tightened.
 

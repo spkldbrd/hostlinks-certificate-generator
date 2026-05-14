@@ -104,11 +104,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	}
 	.watermark {
 		position: absolute;
-		bottom: 4pt;
+		bottom: 0;
 		right: 0;
-		height: 500pt;
+		height: 380pt;
 		width: auto;
 		opacity: 0.10;
+	}
+	.seal-abs {
+		position: absolute;
+		left: 28px;
+		bottom: 44pt;
+		width: 80px;
+		height: 80px;
 	}
 		.presented {
 			font-size: 10px;
@@ -272,13 +279,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</tr>
 				<tr>
 					<td class="cert-foot">
+						<?php if ( isset( $seal_attr ) && $seal_attr !== '' ) : ?>
+							<img class="seal-abs" src="<?php echo $seal_attr; ?>" alt="" />
+						<?php endif; ?>
 						<table class="footer-table" cellspacing="0" cellpadding="0">
 							<tr>
-								<td class="ft-top" style="width:36%; text-align:left; vertical-align:bottom;">
-									<?php if ( isset( $seal_attr ) && $seal_attr !== '' ) : ?>
-										<img class="seal-img" src="<?php echo $seal_attr; ?>" alt="" style="margin:0;" />
-									<?php endif; ?>
-								</td>
+								<td class="ft-top" style="width:36%;"></td>
 								<td class="ft-top" style="width:28%;"></td>
 								<td class="ft-top" style="width:36%;">
 									<p class="sig-script">Rebecca Helm</p>
