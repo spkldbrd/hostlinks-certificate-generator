@@ -18,6 +18,9 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
+= 1.0.36 =
+* Improvement: Reduced vertical spacing by ~30% on "Proudly Presented", body paragraph, workshop/hours, and completed-date rows to balance layout when an agency name is shown.
+
 = 1.0.35 =
 * Fix: Seal capped at 7rem (width and height) to prevent it from rendering at native oversized dimensions.
 * Improvement: Increased vertical spacing between certificate content elements (~20px between each block) so the layout breathes and fills the page better.
