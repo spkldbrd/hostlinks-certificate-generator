@@ -16,6 +16,7 @@ class HLC_PDF {
 	public const BUNDLED_SIGNATURE         = 'becky-helm-signature.jpg';
 	public const SEAL_GRANT_WRITING        = 'seal-grant-writing-usa.jpg';
 	public const SEAL_GRANT_MANAGEMENT     = 'seal-grant-management-usa.jpg';
+	public const WATERMARK                 = 'logo-pen-watermark.jpg';
 
 	/** @var HLC_Access */
 	private $access;
@@ -54,6 +55,10 @@ class HLC_PDF {
 		$seal_file = HLC_PLUGIN_DIR . 'assets/img/' . $this->bundled_seal_filename( $variant );
 		$seal_uri  = is_readable( $seal_file ) ? $this->file_to_data_uri( $seal_file ) : '';
 		$seal_attr = $seal_uri !== '' ? htmlspecialchars( $seal_uri, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8' ) : '';
+
+		$wm_file      = HLC_PLUGIN_DIR . 'assets/img/' . self::WATERMARK;
+		$wm_uri       = is_readable( $wm_file ) ? $this->file_to_data_uri( $wm_file ) : '';
+		$watermark_attr = $wm_uri !== '' ? htmlspecialchars( $wm_uri, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8' ) : '';
 
 		$date_long     = HLC_Certificate_Data::format_completion_date_long( $event );
 		$event_details = HLC_Bridge::format_event_details( $event );

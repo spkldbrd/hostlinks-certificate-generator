@@ -18,6 +18,11 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
+= 1.0.40 =
+* Fix: Emailed PDF watermark converted from PNG to JPEG and loaded as a data URI so Dompdf renders it without needing the GD extension.
+* Fix: Removed negative bottom margin on recipient name in Dompdf template that was causing name/body text overlap.
+* Fix: Updated Dompdf template spacing (presented, name, body, program, event-details) to match live preview proportions.
+
 = 1.0.39 =
 * Improvement: Body paragraph max-width set to 100% and bottom margin corrected to 0.
 

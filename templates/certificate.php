@@ -13,6 +13,7 @@
  * @var string $date_long
  * @var string $event_details
  * @var string $certificate_id
+ * @var string $watermark_attr  safe data-URI for the pen/flag watermark (JPEG)
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -118,43 +119,43 @@ if ( ! defined( 'ABSPATH' ) ) {
 		height: 80px;
 	}
 		.presented {
-			font-size: 10px;
-			text-transform: uppercase;
-			letter-spacing: 0.32em;
-			color: rgba(26, 39, 68, 0.82);
-			margin: 14px 0 8px 0;
-		}
+		font-size: 10px;
+		text-transform: uppercase;
+		letter-spacing: 0.32em;
+		color: rgba(26, 39, 68, 0.82);
+		margin: 18px 0 0 0;
+	}
 	.name {
 		font-family: 'AlexBrush', DejaVu Serif, serif;
 		font-size: 46px;
 		line-height: 1;
 		color: #7a1524;
-		margin: 0 0 -50px 0;
+		margin: 12px 0 0 0;
 		font-weight: 400;
 	}
 	.name-line {
 		height: 1px;
 		width: 72%;
-		margin: 2px auto 16px auto;
-			background-color: rgba(155, 35, 53, 0.4);
-		}
-		.agency {
-			font-size: 11px;
-			font-weight: 600;
-			text-transform: uppercase;
-			letter-spacing: 0.24em;
-			color: #1a2744;
-			margin: 8px 0 0 0;
-		}
-		.body-text {
-			font-family: DejaVu Serif, serif;
-			font-size: 19px;
-			font-style: italic;
-			line-height: 1.45;
-			color: rgba(43, 47, 68, 0.88);
-			margin: 0 auto 0 auto;
-			max-width: 88%;
-		}
+		margin: 4px auto 0 auto;
+		background-color: rgba(155, 35, 53, 0.4);
+	}
+	.agency {
+		font-size: 11px;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.24em;
+		color: #1a2744;
+		margin: 10px 0 0 0;
+	}
+	.body-text {
+		font-family: DejaVu Serif, serif;
+		font-size: 19px;
+		font-style: italic;
+		line-height: 1.45;
+		color: rgba(43, 47, 68, 0.88);
+		margin: 20px 0 0 0;
+		max-width: 100%;
+	}
 	.event-details-inline {
 		font-family: DejaVu Sans, sans-serif;
 		font-size: 9px;
@@ -162,7 +163,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		text-transform: uppercase;
 		letter-spacing: 0.28em;
 		color: #1a2744;
-		margin: 5px auto 0 auto;
+		margin: 7px 0 0 0;
 	}
 	.program {
 		font-size: 10px;
@@ -170,7 +171,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		text-transform: uppercase;
 		letter-spacing: 0.28em;
 		color: #9b2335;
-		margin: 12px 0 0 0;
+		margin: 18px 0 0 0;
 	}
 
 		/* ── footer ── */
@@ -255,7 +256,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="page">
 	<div class="paper">
 		<div class="paper-inner">
-			<img class="watermark" src="<?php echo esc_url( HLC_PLUGIN_URL . 'assets/img/logo-pen-watermark.png' ); ?>" alt="" />
+			<?php if ( ! empty( $watermark_attr ) ) : ?>
+			<img class="watermark" src="<?php echo $watermark_attr; ?>" alt="" />
+			<?php endif; ?>
 			<div class="paper-core">
 				<table class="cert-layout" cellspacing="0" cellpadding="0">
 					<tr>
