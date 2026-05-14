@@ -1,18 +1,116 @@
 @import url("https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap");
 
+/* ═══════════════════════════════════════════════════════════════════════
+   SCOPED BASELINE RESET
+   Neutralises bare-element and single-parent-class theme overrides so
+   the plugin never fights theme CSS reactively with !important.
+
+   Specificity map:
+     This reset:          .hlc-shell element   → (0,1,1)
+     Plugin components:   .hlc-shell .hlc-cls  → (0,2,0)  ← always wins
+     Theme bare element:  element              → (0,0,1)  ← reset wins
+     Theme 1-class rule:  .entry-content img   → (0,1,1)  ← tie; plugin loads last → wins
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Universal box model */
+.hlc-shell *,
+.hlc-shell *::before,
+.hlc-shell *::after {
+	box-sizing: border-box;
+}
+
+/* Paragraphs & headings — themes commonly add margin / line-height */
+.hlc-shell p,
+.hlc-shell h1, .hlc-shell h2, .hlc-shell h3,
+.hlc-shell h4, .hlc-shell h5, .hlc-shell h6 {
+	margin: 0;
+	padding: 0;
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+	color: inherit;
+	letter-spacing: normal;
+	text-transform: none;
+}
+
+/* Lists */
+.hlc-shell ul,
+.hlc-shell ol { margin: 0; padding: 0; list-style: none; }
+.hlc-shell li { margin: 0; padding: 0; list-style: none; }
+
+/* Links */
+.hlc-shell a,
+.hlc-shell a:hover,
+.hlc-shell a:visited,
+.hlc-shell a:active {
+	color: inherit;
+	text-decoration: none;
+	outline: 0;
+}
+
+/* Images — most common source of theme bleed */
+.hlc-shell img {
+	display: block;
+	float: none;
+	clear: none;
+	max-width: none;
+	border: 0;
+	vertical-align: middle;
+}
+
+/* Tables — many themes reset these to display:block for responsiveness */
+.hlc-shell table  { display: table; border-collapse: collapse; border-spacing: 0; }
+.hlc-shell thead  { display: table-header-group; }
+.hlc-shell tbody  { display: table-row-group; }
+.hlc-shell tfoot  { display: table-footer-group; }
+.hlc-shell tr     { display: table-row; }
+.hlc-shell td,
+.hlc-shell th     { display: table-cell; padding: 0; }
+
+/* Form elements */
+.hlc-shell input,
+.hlc-shell select,
+.hlc-shell textarea {
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+.hlc-shell button {
+	font-family: inherit;
+	font-size: inherit;
+	cursor: pointer;
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+/* HR */
+.hlc-shell hr { margin: 0; padding: 0; border: 0; height: 0; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   PLUGIN STYLES
+   Rules that set properties also normalised above use .hlc-shell as an
+   ancestor (.hlc-shell .component) reaching (0,2,0), which beats the
+   reset's (0,1,1). No !important needed anywhere below except @media print.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── Shell & layout ────────────────────────────────────────────────── */
+
 .hlc-shell {
-	--hlc-crimson: #9b2335;
+	--hlc-crimson:      #9b2335;
 	--hlc-crimson-deep: #7a1524;
-	--hlc-navy: #1a2744;
-	--hlc-ink: #2b2f44;
-	--hlc-parchment: #ffffff;
-	--hlc-gold: #b58c3c;
-	--hlc-muted: #64748b;
-	--hlc-border: #e2e8f0;
+	--hlc-navy:         #1a2744;
+	--hlc-ink:          #2b2f44;
+	--hlc-parchment:    #ffffff;
+	--hlc-gold:         #b58c3c;
+	--hlc-muted:        #64748b;
+	--hlc-border:       #e2e8f0;
 	--font-display: "Playfair Display", Georgia, serif;
-	--font-serif: "Cormorant Garamond", Georgia, serif;
-	--font-script: "Alex Brush", "Great Vibes", cursive;
-	--font-sans: "Inter", system-ui, sans-serif;
+	--font-serif:   "Cormorant Garamond", Georgia, serif;
+	--font-script:  "Alex Brush", "Great Vibes", cursive;
+	--font-sans:    "Inter", system-ui, sans-serif;
 	max-width: 1280px;
 	margin: 0 auto;
 	padding: 0 1rem 2.5rem;
@@ -20,7 +118,7 @@
 	color: var(--hlc-ink);
 }
 
-.hlc-muted {
+.hlc-shell .hlc-muted {
 	margin: 0;
 	font-size: 0.8125rem;
 	color: var(--hlc-muted);
@@ -73,6 +171,8 @@
 	padding: 1.15rem 1.25rem;
 	box-shadow: 0 1px 2px rgba(26, 39, 68, 0.04);
 }
+
+/* ── Form controls ─────────────────────────────────────────────────── */
 
 .hlc-label {
 	display: block;
@@ -165,23 +265,18 @@
 	color: var(--hlc-crimson);
 }
 
-.hlc-status {
+.hlc-shell .hlc-status {
 	min-height: 1.25rem;
 	font-size: 0.8125rem;
 	margin: 0.25rem 0 0;
 }
 
-.hlc-status--error {
-	color: #b32d2e;
-}
+.hlc-status--error { color: #b32d2e; }
+.hlc-status--ok    { color: #007017; }
 
-.hlc-status--ok {
-	color: #007017;
-}
+/* ── Preview meta bar ──────────────────────────────────────────────── */
 
-.hlc-preview-col {
-	min-width: 0;
-}
+.hlc-preview-col { min-width: 0; }
 
 .hlc-preview-meta {
 	display: flex;
@@ -206,6 +301,8 @@
 	font-family: ui-monospace, monospace;
 	color: var(--hlc-ink);
 }
+
+/* ── Certificate card & borders ────────────────────────────────────── */
 
 @keyframes hlc-refresh-blink {
 	0%   { opacity: 0.55; }
@@ -233,8 +330,8 @@
 	aspect-ratio: 11 / 8.5;
 }
 
-.hlc-cert-border-outer {
-	display: block !important;
+.hlc-shell .hlc-cert-border-outer {
+	display: block;
 	background: var(--hlc-parchment);
 	border: 3px solid var(--hlc-crimson);
 	padding: 8px;
@@ -245,17 +342,17 @@
 	box-sizing: border-box;
 }
 
-.hlc-cert-border-mid {
-	display: block !important;
+.hlc-shell .hlc-cert-border-mid {
+	display: block;
 	border: 1px solid rgba(155, 35, 53, 0.42);
 	padding: 8px;
 	height: 100%;
 	box-sizing: border-box;
 }
 
-.hlc-cert-inner {
-	display: flex !important;
-	flex-direction: column !important;
+.hlc-shell .hlc-cert-inner {
+	display: flex;
+	flex-direction: column;
 	border: 1px solid rgba(181, 140, 60, 0.45);
 	padding: 1.4rem 1.75rem 2.25rem;
 	position: relative;
@@ -278,34 +375,36 @@
 	background-size: 3px 3px, 7px 7px;
 }
 
-.hlc-cert-logo {
-	height: 4.5rem !important;
-	width: auto !important;
-	max-width: none !important;
+/* ── Certificate content elements ──────────────────────────────────── */
+
+.hlc-cert-inner .hlc-cert-logo {
+	height: 4.5rem;
+	width: auto;
+	max-width: none;
 	margin: 0 auto 0.35rem;
-	display: block !important;
-	float: none !important;
+	display: block;
+	float: none;
 	position: relative;
 	z-index: 1;
 	mix-blend-mode: multiply;
 }
 
-.hlc-cert-watermark {
-	position: absolute !important;
-	bottom: 0 !important;
-	right: 0 !important;
-	height: 70% !important;
-	width: auto !important;
-	max-width: none !important;
+.hlc-cert-inner .hlc-cert-watermark {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	height: 70%;
+	width: auto;
+	max-width: none;
 	opacity: 0.10;
 	mix-blend-mode: multiply;
 	pointer-events: none;
-	display: block !important;
-	float: none !important;
+	display: block;
+	float: none;
 	z-index: 0;
 }
 
-.hlc-cert-ribbon {
+.hlc-cert-inner .hlc-cert-ribbon {
 	margin: 0;
 	font-size: 0.55rem;
 	font-weight: 700;
@@ -320,12 +419,13 @@
 	z-index: 1;
 }
 
-.hlc-cert-ribbon-line {
+.hlc-cert-inner .hlc-cert-ribbon-line {
 	width: 2rem;
 	border-top: 1px solid rgba(155, 35, 53, 0.5);
 }
 
-.hlc-cert-presented {
+/* "This Certificate is Proudly Presented to" */
+.hlc-shell .hlc-cert-presented {
 	margin: 1.75rem 0 0;
 	font-size: 0.7rem;
 	text-transform: uppercase;
@@ -335,7 +435,7 @@
 	z-index: 1;
 }
 
-.hlc-cert-name {
+.hlc-shell .hlc-cert-name {
 	margin: 0.45rem 0 -3.75rem;
 	font-family: var(--font-script);
 	font-size: clamp(1.9rem, 4.5vw, 3.25rem);
@@ -346,7 +446,7 @@
 	z-index: 1;
 }
 
-.hlc-cert-name-line {
+.hlc-cert-inner .hlc-cert-name-line {
 	height: 1px;
 	width: 72%;
 	margin: 0.05rem auto 0;
@@ -355,7 +455,7 @@
 	z-index: 1;
 }
 
-.hlc-cert-agency {
+.hlc-shell .hlc-cert-agency {
 	margin: 0.65rem 0 0;
 	font-size: 0.85rem;
 	font-weight: 600;
@@ -366,7 +466,7 @@
 	z-index: 1;
 }
 
-.hlc-cert-body {
+.hlc-shell .hlc-cert-body {
 	margin: 0.6rem auto 0;
 	max-width: 90%;
 	font-family: var(--font-serif);
@@ -378,8 +478,8 @@
 	z-index: 1;
 }
 
-.hlc-cert-event-details {
-	/* Direct flex child of .hlc-cert-inner — not inside scroll so overflow:hidden cannot clip it */
+/* Event details — direct flex child of .hlc-cert-inner so overflow:hidden cannot clip it */
+.hlc-shell .hlc-cert-event-details {
 	flex: 0 0 auto;
 	margin: 0.35rem auto 0;
 	text-align: center;
@@ -393,7 +493,7 @@
 	z-index: 1;
 }
 
-.hlc-cert-program {
+.hlc-shell .hlc-cert-program {
 	margin: 0.6rem 0 0;
 	font-size: 0.68rem;
 	font-weight: 700;
@@ -404,7 +504,8 @@
 	z-index: 1;
 }
 
-.hlc-cert-scroll {
+/* Scroll area (flex: 1 → takes remaining vertical space before footer) */
+.hlc-cert-inner .hlc-cert-scroll {
 	flex: 1 1 auto;
 	min-height: 0;
 	overflow: hidden;
@@ -416,10 +517,11 @@
 	margin-top: 0.65rem;
 }
 
-/* Footer — pure flexbox so theme table resets cannot interfere */
-.hlc-cert-footer {
-	display: flex !important;
-	flex-direction: column !important;
+/* ── Certificate footer (flexbox — immune to table resets) ──────────── */
+
+.hlc-shell .hlc-cert-footer {
+	display: flex;
+	flex-direction: column;
 	flex: 0 0 auto;
 	margin-top: 0.75rem;
 	position: relative;
@@ -427,15 +529,15 @@
 	width: 100%;
 }
 
-.hlc-cert-footer-row {
-	display: flex !important;
-	flex-direction: row !important;
+.hlc-shell .hlc-cert-footer-row {
+	display: flex;
+	flex-direction: row;
 	width: 100%;
 }
 
-.hlc-cert-ft-col {
-	display: block !important;
-	float: none !important;
+.hlc-shell .hlc-cert-ft-col {
+	display: block;
+	float: none;
 	min-width: 0;
 }
 
@@ -465,23 +567,13 @@
 	padding-bottom: 0;
 }
 
-.hlc-cert-footer-rules .hlc-cert-ft-col {
-	padding: 0 0.35rem;
-}
+.hlc-cert-footer-rules .hlc-cert-ft-col { padding: 0 0.35rem; }
+.hlc-cert-footer-rules .hlc-cert-ft-rule { margin-top: 0.35rem; }
+.hlc-cert-footer-labels .hlc-cert-ft-col { padding: 0.35rem 0.35rem 0; }
 
-.hlc-cert-footer-rules .hlc-cert-ft-rule {
-	margin-top: 0.35rem;
-}
+.hlc-cert-ft-bot-sig { text-align: right; }
 
-.hlc-cert-footer-labels .hlc-cert-ft-col {
-	padding: 0.35rem 0.35rem 0;
-}
-
-.hlc-cert-ft-bot-sig {
-	text-align: right;
-}
-
-.hlc-cert-ft-date {
+.hlc-shell .hlc-cert-ft-date {
 	margin: 0;
 	font-family: var(--font-serif);
 	font-size: 1.05rem;
@@ -497,7 +589,7 @@
 	margin: 0;
 }
 
-.hlc-cert-ft-lbl {
+.hlc-shell .hlc-cert-ft-lbl {
 	margin: 0.35rem 0 0;
 	font-size: 0.55rem;
 	text-transform: uppercase;
@@ -505,29 +597,33 @@
 	color: rgba(26, 39, 68, 0.68);
 }
 
-.hlc-cert-seal-img {
-	width: 7rem !important;
-	height: 7rem !important;
-	max-width: none !important;
+/* ── Seal ───────────────────────────────────────────────────────────── */
+
+.hlc-cert-inner .hlc-cert-seal-img {
+	width: 7rem;
+	height: 7rem;
+	max-width: none;
 	object-fit: contain;
-	display: block !important;
-	float: none !important;
+	display: block;
+	float: none;
 	margin: 0 auto;
 	mix-blend-mode: multiply;
 }
 
-/* Seal absolutely positioned lower-left, aligned with signature area */
-.hlc-cert-seal-left {
-	position: absolute !important;
-	left: 1.75rem !important;
-	bottom: 2.75rem !important;
-	width: 5rem !important;
-	height: 5rem !important;
-	margin: 0 !important;
+/* Seal absolutely positioned lower-left, visually aligned with signature */
+.hlc-cert-inner .hlc-cert-seal-left {
+	position: absolute;
+	left: 1.75rem;
+	bottom: 2.75rem;
+	width: 5rem;
+	height: 5rem;
+	margin: 0;
 	z-index: 1;
 }
 
-.hlc-cert-sig-script {
+/* ── Signature block ────────────────────────────────────────────────── */
+
+.hlc-shell .hlc-cert-sig-script {
 	font-family: var(--font-script);
 	font-size: 1.8rem;
 	color: var(--hlc-navy);
@@ -537,7 +633,7 @@
 	line-height: 1;
 }
 
-.hlc-cert-sig-name {
+.hlc-shell .hlc-cert-sig-name {
 	margin: 0.35rem 0 0;
 	font-size: 0.68rem;
 	font-weight: 700;
@@ -546,7 +642,7 @@
 	color: var(--hlc-navy);
 }
 
-.hlc-cert-sig-title {
+.hlc-shell .hlc-cert-sig-title {
 	margin: 0.05rem 0 0;
 	font-size: 0.45rem;
 	text-transform: uppercase;
@@ -554,7 +650,9 @@
 	color: rgba(26, 39, 68, 0.7);
 }
 
-.hlc-cert-meta {
+/* ── Certificate number (absolute, bottom-center) ───────────────────── */
+
+.hlc-cert-inner .hlc-cert-meta {
 	position: absolute;
 	left: 1.5rem;
 	right: 1.5rem;
@@ -565,6 +663,8 @@
 	letter-spacing: 0.22em;
 	color: rgba(26, 39, 68, 0.55);
 }
+
+/* ── Print styles ───────────────────────────────────────────────────── */
 
 @media print {
 	@page {
@@ -641,13 +741,6 @@
 		height: 7rem !important;
 		max-height: none !important;
 		margin-bottom: 0.5rem !important;
-	}
-
-	body.hlc-print-certificate #hlc-print-root .hlc-cert-ribbon {
-		font-size: 0.825rem !important;
-		letter-spacing: 0.42em !important;
-		margin-top: 0.35rem !important;
-		margin-bottom: 1.05rem !important;
 	}
 
 	body.hlc-print-certificate #hlc-print-root .hlc-cert-body {

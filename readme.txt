@@ -18,6 +18,9 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
+= 1.0.33 =
+* Improvement: CSS isolation — added a scoped baseline reset targeting bare element types inside .hlc-shell so theme CSS can no longer bleed into the plugin UI. All component rules now use an ancestor selector to reach higher specificity, eliminating the need for reactive !important flags throughout the stylesheet.
+
 = 1.0.32 =
 * Fix: Seal moved to absolutely-positioned lower-left so it aligns with the Rebecca Helm signature area and no longer controls footer row height.
 * Fix: Event details moved outside the scroll div so overflow:hidden can no longer clip the dates/location text.
