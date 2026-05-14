@@ -18,6 +18,10 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
+= 1.0.45 =
+* Fix: Body text paragraph now centered in browser Print/Save PDF (margin-left/right auto in print CSS).
+* Fix: Certificate background/borders no longer intermittently disappear in print preview — added print-color-adjust:exact to inner border elements and a double requestAnimationFrame before window.print() to guarantee a paint cycle after the print class is applied.
+
 = 1.0.44 =
 * Change: Email PDF button disabled and labelled "Coming soon" while email delivery is under development.
 * Fix: certificate.php border units standardised (px → pt); seal left position adjusted for uniform spacing.

@@ -727,6 +727,8 @@
 	body.hlc-print-certificate #hlc-print-root .hlc-cert-inner {
 		height: 100% !important;
 		box-sizing: border-box !important;
+		-webkit-print-color-adjust: exact !important;
+		print-color-adjust: exact !important;
 	}
 
 	body.hlc-print-certificate #hlc-print-root .hlc-cert-border-outer {
@@ -748,6 +750,9 @@
 		line-height: 1.45 !important;
 		max-width: 88% !important;
 		margin-top: 1.55rem !important;
+		margin-left: auto !important;
+		margin-right: auto !important;
+		text-align: center !important;
 	}
 
 	body.hlc-print-certificate #hlc-print-root .hlc-cert-presented {

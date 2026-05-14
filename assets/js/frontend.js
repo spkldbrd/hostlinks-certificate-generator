@@ -273,13 +273,18 @@
 		document.body.classList.add('hlc-print-certificate');
 		status('Opening print dialog. Choose "Save as PDF" to create the certificate PDF.', false);
 
-		if (document.fonts && document.fonts.ready) {
-			document.fonts.ready.then(function () {
+		// Double rAF guarantees the browser has painted the new class (and its print-color-adjust
+		// declarations) before the print dialog opens, preventing an intermittent blank background.
+		function doPrint() {
+			if (document.fonts && document.fonts.ready) {
+				document.fonts.ready.then(function () { window.print(); });
+			} else {
 				window.print();
-			});
-		} else {
-			window.print();
+			}
 		}
+		requestAnimationFrame(function () {
+			requestAnimationFrame(doPrint);
+		});
 	}
 
 	document.addEventListener('DOMContentLoaded', function () {
