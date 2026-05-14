@@ -3,7 +3,7 @@
  * Plugin Name: Hostlinks Certificate Generator
  * Plugin URI:  https://digitalsolution.com
  * Description: Hostlinks add-on: generate completion certificates from event data with PDF download or email.
- * Version:     1.0.30
+ * Version:     1.0.31
  * Author:      Digital Solution
  * License:     GPL2
  * Requires PHP: 8.0
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'HLC_VERSION', '1.0.30' );
+define( 'HLC_VERSION', '1.0.31' );
 define( 'HLC_PLUGIN_FILE', __FILE__ );
 define( 'HLC_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'HLC_PLUGIN_URL', plugin_dir_url( __FILE__ ) );

@@ -18,6 +18,9 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
+= 1.0.31 =
+* Improvement: "Chief Executive Officer" label reduced to 0.45rem and gap above it tightened.
+
 = 1.0.30 =
 * Improvement: Pen watermark opacity reduced to 10%.
 

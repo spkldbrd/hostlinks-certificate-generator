@@ -226,13 +226,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 			color: #1a2744;
 			margin: 4px 0 0 0;
 		}
-		.sig-title {
-			font-size: 7px;
-			text-transform: uppercase;
-			letter-spacing: 0.2em;
-			color: rgba(26, 39, 68, 0.72);
-			margin: 2px 0 0 0;
-		}
+	.sig-title {
+		font-size: 5.5px;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		color: rgba(26, 39, 68, 0.72);
+		margin: 1px 0 0 0;
+	}
 		.meta-cert {
 			text-align: center;
 			font-size: 7px;
