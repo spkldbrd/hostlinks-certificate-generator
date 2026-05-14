@@ -393,7 +393,7 @@
 	position: absolute;
 	bottom: 0;
 	right: 0;
-	height: 70%;
+	height: 65%;
 	width: auto;
 	max-width: none;
 	opacity: 0.10;
@@ -436,7 +436,7 @@
 }
 
 .hlc-shell .hlc-cert-name {
-	margin: 0.45rem 0 -3.75rem;
+	margin: 0.45rem 0 0;
 	font-family: var(--font-script);
 	font-size: clamp(1.9rem, 4.5vw, 3.25rem);
 	line-height: 1.05;
@@ -478,16 +478,16 @@
 	z-index: 1;
 }
 
-/* Event details — direct flex child of .hlc-cert-inner so overflow:hidden cannot clip it */
+/* Event details — inside .hlc-cert-scroll, just below the program/hours line */
 .hlc-shell .hlc-cert-event-details {
-	flex: 0 0 auto;
-	margin: 0.35rem auto 0;
+	margin: 0.3rem 0 0;
 	text-align: center;
-	font-family: var(--font-serif);
-	font-size: 0.8rem;
+	font-family: var(--font-sans);
+	font-size: 0.61rem;
 	font-weight: 700;
-	line-height: 1.3;
-	white-space: pre-line;
+	letter-spacing: 0.28em;
+	text-transform: uppercase;
+	white-space: normal;
 	color: var(--hlc-navy);
 	position: relative;
 	z-index: 1;
@@ -610,13 +610,13 @@
 	mix-blend-mode: multiply;
 }
 
-/* Seal absolutely positioned lower-left, visually aligned with signature */
+/* Seal absolutely positioned lower-left, visually aligned with signature — native size */
 .hlc-cert-inner .hlc-cert-seal-left {
 	position: absolute;
 	left: 1.75rem;
 	bottom: 2.75rem;
-	width: 5rem;
-	height: 5rem;
+	width: auto;
+	height: auto;
 	margin: 0;
 	z-index: 1;
 }

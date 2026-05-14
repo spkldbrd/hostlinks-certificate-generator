@@ -18,6 +18,12 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
+= 1.0.34 =
+* Fix: Removed negative bottom margin from the recipient name so the rule line and body text appear correctly below it.
+* Fix: Seal now uses its native image size (no 5rem cap).
+* Improvement: Pen watermark height reduced to 65%.
+* Improvement: Event details moved inside the scroll area, directly below the workshop/hours line, formatted as "Completed: Date, Location" in a matching uppercase sans-serif style.
+
 = 1.0.33 =
 * Improvement: CSS isolation — added a scoped baseline reset targeting bare element types inside .hlc-shell so theme CSS can no longer bleed into the plugin UI. All component rules now use an ancestor selector to reach higher specificity, eliminating the need for reactive !important flags throughout the stylesheet.
 

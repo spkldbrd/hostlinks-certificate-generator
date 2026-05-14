@@ -231,14 +231,17 @@ class HLC_Bridge {
 	}
 
 	public static function format_event_details( object $event ): string {
-		$dates = self::format_event_dates( $event );
-		$is_zoom = isset( $event->eve_zoom )
+		$dates    = self::format_event_dates( $event );
+		$is_zoom  = isset( $event->eve_zoom )
 			&& strtolower( trim( (string) $event->eve_zoom ) ) === 'yes';
 		$location = $is_zoom
-			? 'Zoom webinar'
+			? 'Zoom Webinar'
 			: ( isset( $event->eve_location ) ? trim( (string) $event->eve_location ) : '' );
 
-		$parts = array_values( array_filter( array( $dates, $location ), static fn( $part ) => $part !== '' ) );
-		return implode( "\n", $parts );
+		$parts = array_values( array_filter( array( $dates, $location ), static fn( $p ) => $p !== '' ) );
+		if ( empty( $parts ) ) {
+			return '';
+		}
+		return 'Completed: ' . implode( ', ', $parts );
 	}
 }

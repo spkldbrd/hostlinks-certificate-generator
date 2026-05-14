@@ -156,12 +156,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 			max-width: 88%;
 		}
 	.event-details-inline {
-		font-family: DejaVu Serif, serif;
-		font-size: 14px;
+		font-family: DejaVu Sans, sans-serif;
+		font-size: 9px;
 		font-weight: 700;
-		line-height: 1.3;
+		text-transform: uppercase;
+		letter-spacing: 0.28em;
 		color: #1a2744;
-		margin: 10px auto 0 auto;
+		margin: 5px auto 0 auto;
 	}
 	.program {
 		font-size: 10px;
@@ -271,10 +272,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<?php endif; ?>
 
 						<p class="body-text"><?php echo esc_html( $workshop_body ); ?></p>
-						<?php if ( $event_details !== '' ) : ?>
-							<p class="event-details-inline"><?php echo nl2br( esc_html( $event_details ) ); ?></p>
-						<?php endif; ?>
 						<p class="program"><?php echo esc_html( $program_line ); ?></p>
+						<?php if ( $event_details !== '' ) : ?>
+							<p class="event-details-inline"><?php echo esc_html( $event_details ); ?></p>
+						<?php endif; ?>
 					</td>
 				</tr>
 				<tr>

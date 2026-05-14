@@ -170,9 +170,8 @@ class HLC_Shortcode {
 									<p id="hlc-pr-agency" class="hlc-cert-agency" hidden></p>
 									<p id="hlc-pr-body" class="hlc-cert-body"></p>
 									<p id="hlc-pr-program" class="hlc-cert-program"></p>
+									<p id="hlc-pr-datelong" class="hlc-cert-event-details"></p>
 								</div>
-								<!-- Event details outside scroll so overflow:hidden cannot clip it -->
-								<p id="hlc-pr-datelong" class="hlc-cert-event-details"></p>
 							<div class="hlc-cert-footer">
 								<div class="hlc-cert-footer-row hlc-cert-footer-top">
 									<div class="hlc-cert-ft-col hlc-cert-ft-w-date"></div>
