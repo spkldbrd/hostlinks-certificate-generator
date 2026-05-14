@@ -18,6 +18,9 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
+= 1.0.39 =
+* Improvement: Body paragraph max-width set to 100% and bottom margin corrected to 0.
+
 = 1.0.38 =
 * Improvement: Reduced inter-element spacing by another 10%. Body margin set to 1.25rem 0 auto 0.
 
