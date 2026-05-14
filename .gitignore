@@ -12,9 +12,8 @@ Thumbs.db
 *.swp
 *.swo
 
-# Composer
+# Composer — vendor is built by CI; lock file is committed for reproducible installs
 /vendor/
-composer.lock
 
 # Node
 node_modules/

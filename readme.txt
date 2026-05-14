@@ -18,6 +18,10 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
+= 1.0.37 =
+* Fix: CI workflow now runs `composer install --no-dev` before packaging so the Dompdf vendor library is included in the release zip. Previously the zip was missing the vendor directory, causing "PDF library is not installed" errors on live sites.
+* Fix: `composer.lock` committed to git for reproducible CI installs.
+
 = 1.0.36 =
 * Improvement: Reduced vertical spacing by ~30% on "Proudly Presented", body paragraph, workshop/hours, and completed-date rows to balance layout when an agency name is shown.
 

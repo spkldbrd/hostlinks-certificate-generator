@@ -29,6 +29,9 @@ jobs:
           echo "version=$VER" >> "$GITHUB_OUTPUT"
           echo "Building release $VER"
 
+      - name: Install Composer dependencies (production only)
+        run: composer install --no-dev --optimize-autoloader --no-interaction
+
       - name: Assemble plugin folder and zip
         run: |
           mkdir -p build/hostlinks-certificate-generator
