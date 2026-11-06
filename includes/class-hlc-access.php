@@ -174,7 +174,11 @@ class HLC_Access {
 		if ( $msg === '' ) {
 			$msg = self::DEFAULT_DENIAL;
 		}
-		return '<div class="hlc-access-denied hostlinks-access-denied"><p>' . wp_kses_post( $msg ) . '</p></div>';
+		$uid     = is_user_logged_in() ? get_current_user_id() : 0;
+		$id_note = $uid > 0
+			? '<p style="margin-top:0.5em;font-size:0.8em;color:#999;">Your user ID: <strong>' . $uid . '</strong> — provide this to your site administrator.</p>'
+			: '';
+		return '<div class="hlc-access-denied hostlinks-access-denied"><p>' . wp_kses_post( $msg ) . '</p>' . $id_note . '</div>';
 	}
 
 	/**

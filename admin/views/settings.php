@@ -84,6 +84,20 @@ foreach ( $allowed_ids as $uid ) {
 		<?php wp_nonce_field( 'hlc_settings' ); ?>
 
 		<h2 class="title">Allowed users</h2>
+		<?php if ( ! empty( $allowed_ids ) ) : ?>
+		<p class="description" style="margin-bottom:1em;">
+			<strong>Saved user IDs:</strong>
+			<?php
+			foreach ( $allowed_ids as $saved_id ) {
+				$u = get_userdata( $saved_id );
+				$label = $u ? esc_html( $u->display_name . ' (' . $u->user_email . ')' ) : 'ID ' . $saved_id . ' (not found)';
+				echo '<code style="margin-right:8px;">' . (int) $saved_id . ' — ' . $label . '</code>';
+			}
+			?>
+		</p>
+		<?php else : ?>
+		<p class="description" style="margin-bottom:1em;color:#b32d2e;">No users saved yet — only administrators can access the tool.</p>
+		<?php endif; ?>
 		<table class="form-table">
 			<tr>
 				<th scope="row"><label for="hlc-user-search">Add users</label></th>

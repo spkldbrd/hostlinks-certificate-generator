@@ -18,6 +18,10 @@ Generate PDF completion certificates from Hostlinks events with optional email d
 
 == Changelog ==
 
+= 1.0.46 =
+* Improvement: Access denial message now shows the user's WordPress user ID so admins can quickly diagnose allowlist mismatches.
+* Improvement: Settings page now shows the currently saved allowed user IDs (with names/emails) as a live diagnostic above the Add Users field.
+
 = 1.0.45 =
 * Fix: Body text paragraph now centered in browser Print/Save PDF (margin-left/right auto in print CSS).
 * Fix: Certificate background/borders no longer intermittently disappear in print preview — added print-color-adjust:exact to inner border elements and a double requestAnimationFrame before window.print() to guarantee a paint cycle after the print class is applied.
